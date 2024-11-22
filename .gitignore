@@ -8,6 +8,7 @@
 # Мои файлы для исключения
 */goods_rez.db
 */.gitignore
+*/requirements.txt
 
 # Исключение каталога PyCharm (настройки среды)
 .idea/
