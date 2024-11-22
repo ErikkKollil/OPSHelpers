@@ -1,0 +1,54 @@
+# Исключение лишних дичных папок
+.old_file/
+
+# Исключение каталога PyCharm (настройки среды)
+.idea/
+
+# Исключение файлов интерпретатора Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Исключение виртуального окружения Python
+venv/
+env/
+ENV/
+.venv/
+.virtualenv/
+
+# Лог-файлы и временные файлы
+*.log
+*.tmp
+*.swp
+*.swo
+*.swn
+
+# Исключение файлов ОС
+.DS_Store
+Thumbs.db
+
+# Исключение настроек тестов и отчётов
+*.pytest_cache/
+.tox/
+nosetests.xml
+coverage.xml
+*.cover
+*.coverage
+.cache/
+.hypothesis/
+
+# Исключение файлов, генерируемых IDE
+*.iml
+out/
+
+# Исключение результатов сборки (если используется)
+build/
+dist/
+*.egg-info/
+.eggs/
+
+# Исключение файлов пакетов
+*.tar.gz
+*.whl
+*.zip
