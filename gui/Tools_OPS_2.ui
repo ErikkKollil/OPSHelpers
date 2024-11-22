@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>Form</class>
+ <widget class="QWidget" name="Form">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>940</width>
+    <height>600</height>
+   </rect>
+  </property>
+  <property name="minimumSize">
+   <size>
+    <width>940</width>
+    <height>600</height>
+   </size>
+  </property>
+  <property name="maximumSize">
+   <size>
+    <width>940</width>
+    <height>600</height>
+   </size>
+  </property>
+  <property name="windowTitle">
+   <string>Form</string>
+  </property>
+  <property name="styleSheet">
+   <string notr="true">QWidget {
+background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0.142045 rgba(187, 183, 250, 255), stop:1 rgba(148, 212, 245, 255));
+}</string>
+  </property>
+  <widget class="QTextEdit" name="textEdit">
+   <property name="geometry">
+    <rect>
+     <x>10</x>
+     <y>10</y>
+     <width>920</width>
+     <height>580</height>
+    </rect>
+   </property>
+   <property name="minimumSize">
+    <size>
+     <width>920</width>
+     <height>580</height>
+    </size>
+   </property>
+   <property name="maximumSize">
+    <size>
+     <width>920</width>
+     <height>580</height>
+    </size>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">background-color:none;</string>
+   </property>
+   <property name="html">
+    <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
+p, li { white-space: pre-wrap; }
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'MS Shell Dlg 2'; font-size:8.25pt; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:10pt; font-weight:600;&quot;&gt;1. Работа с главным окном программы&lt;/span&gt;&lt;/p&gt;
+&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-size:10pt; font-weight:600;&quot;&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:10pt;&quot;&gt;• Все действия в программе сохраняют процесс работы сразу, поэтому сохранять данные отдельно не нужно.&lt;/span&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:10pt;&quot;&gt;• Вы можете скопировать данные из людей ячейки и вставив их в необходимое окно, чтобы не набирать снова одно и тоже. Выбрав необходимую ячейку необходимо нажать на клавиатуре CTRL + C чтобы скопировать данные и CTRL + V чтобы вставить данные.&lt;/span&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:10pt;&quot;&gt;• В меню окна есть пункты: &amp;quot;инструкция&amp;quot; в котором есть подпункты (горячие клавиши и открыть инструкцию) и &amp;quot;о программе&amp;quot; (в которой описана общая информация о программе).&lt;/span&gt;&lt;/p&gt;
+&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-size:10pt;&quot;&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:10pt;&quot;&gt;1.1. &lt;/span&gt;&lt;span style=&quot; font-size:10pt; text-decoration: underline;&quot;&gt;Добавление данных&lt;/span&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:10pt;&quot;&gt;○ Для добавления данных необходимо заполнить информация (наименование, срок годности и дополнительную информацию) в верхней части программы. Поле наименование - это текстовое поле, которое заполняется данными в любом текстовом формате (любые символы) произвольной длинны. Поле срока годности - это поле с форматом даты (день, месяц, год: 23.04.1997), данное поле можно заполнять через точки или запятые между цифрами, без пробелов. Поле дополнительной информации является необязательным, его заполнение не требуется для добавления данных, оно также текстовое как и поле &amp;quot;Наименования&amp;quot; произвольной длинны. После заполнения данных необходимо нажать на кнопку &amp;quot;Добавить&amp;quot; в окне программы справа вверху. Далее данные будут добавлены в таблицу и показаны в основном окне программы для отображения данных. &lt;/span&gt;&lt;/p&gt;
+&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-size:10pt;&quot;&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:10pt;&quot;&gt;1.2. &lt;/span&gt;&lt;span style=&quot; font-size:10pt; text-decoration: underline;&quot;&gt;Основная таблица&lt;/span&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:10pt;&quot;&gt;○ Основное окно программы (таблица) необходима для отображения уже имеющихся данных. Она имеет 3 колонки: наименование, срок годности и дополнительную информацию. Сортировка в окне производится различными способами, в зависимости от нажатой кнопки. По умолчанию (при открытии программы) сортировка идет по сроку годности от ближайшей даты (или прошедшей) к будущей даты. Справа окна есть ползунок, который будет активен, когда данных в окне станет больше чем может показать само окно. &lt;/span&gt;&lt;/p&gt;
+&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-size:10pt;&quot;&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:10pt;&quot;&gt;1.3. &lt;/span&gt;&lt;span style=&quot; font-size:10pt; text-decoration: underline;&quot;&gt;Цветовое выделение&lt;/span&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:10pt;&quot;&gt;○ Цветовое выделение работает автоматически (серый, красный и желтый), за исключением отправленного на склад (зелёный цвет) товара.&lt;/span&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:10pt;&quot;&gt;•  Серый цвет - товары у которых срок годности в норме. &lt;/span&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:10pt;&quot;&gt;•  Желтый цвет - товары срок годности которых близок к тому, чтобы товар оказался просроченным (за 30 дней до просрочки).&lt;/span&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:10pt;&quot;&gt;•  Красный цвет - товар срок годности которого просрочен или срок годности - сегодня. &lt;/span&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:10pt;&quot;&gt;•  Зеленый - товар отправлен на склад (не зависимо от срока годности товар будет помечен зеленым цветом).&lt;/span&gt;&lt;/p&gt;
+&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-size:10pt;&quot;&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:10pt;&quot;&gt;1.4. &lt;/span&gt;&lt;span style=&quot; font-size:10pt; text-decoration: underline;&quot;&gt;Кнопка  &amp;quot;Галочка&amp;quot; или &amp;quot;На склад&amp;quot;&lt;/span&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:10pt;&quot;&gt;○ Чтобы отправить товар на склад  необходимо выбрать (выделить) его и нажать на кнопку с изображением галочки (слева снизу). После чего вы увидите сообщение о том, что выбранный товар был отправлен на склад. Чтобы снять (убрать) товар со клада необходимо выбрать нужный товар помеченный зеленым цветом и нажать снова на кнопки с изображением галочки, после чего вы увидите соответствующее сообщение о том, что товар был снят со склада. Цвет ячейки товара после снятия его со склада сменится с зеленого на соответствующий сроку годности цвет. &lt;/span&gt;&lt;/p&gt;
+&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-size:10pt;&quot;&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:10pt;&quot;&gt;1.5 &lt;/span&gt;&lt;span style=&quot; font-size:10pt; text-decoration: underline;&quot;&gt;Поиск данных&lt;/span&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:10pt;&quot;&gt;○ Для поиска данных необходимо заполнить поле &amp;quot;Поиск по имени&amp;quot;, после чего нажать на кнопку &amp;quot;Поиск&amp;quot; или клавишу Enter. Далее в окне программы будут выведены все строки данных, которые удовлетворяют описку. Поиск работает по принципу поиска подстроки в строке, т.е. в строке Молоко &amp;quot;Коровий луг&amp;quot; подстрокой является все элементы произвольной длинны находящиеся в необходимом порядке в строке, такие как - мол, молоко, кор, луг и др. элементы содержащиеся в строке. Если нажать на кнопку &amp;quot;Поиск&amp;quot; при пустом (не заполненном) поле наименования, то в этом случае вы увидите все данные таблицы.&lt;/span&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:10pt;&quot;&gt;○ Для поиска всех товаров находящихся на складе необходимо в поле поиска указать: &amp;quot;!на складе&amp;quot; или &amp;quot;#на складе&amp;quot;. После чего нажать на соответствующую кнопку поиска. Далее в основном окне программы вы увидите все товары отмеченные зеленым цветом, что говорит нам о том, что данные товары находятся на складе.&lt;/span&gt;&lt;/p&gt;
+&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-size:10pt;&quot;&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:10pt;&quot;&gt;1.6. &lt;/span&gt;&lt;span style=&quot; font-size:10pt; text-decoration: underline;&quot;&gt;Сортировка данных (кнопки: по наименованию, по сроку годности и домой)&lt;/span&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:10pt;&quot;&gt;•  Кнопка &amp;quot;По наименованию&amp;quot; работает в двух направлениях, т.е. при первом нажатии на нее произойдет сортировка от A-Я (сначала идут наименования на латинице от A-Z, после чего идут наименования на кириллицы А-Я). Если же нажать на нее второй раз, то порядок сортировки будет обратным от Я-А. &lt;/span&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:10pt;&quot;&gt;•  Кнопка &amp;quot;По сроку годности&amp;quot;  работает в двух направлениях, т.е. при первом нажатии на нее произойдет сортировка (по умолчанию) от ближайшей (или прошедшей) даты до будущей (дальней) даты. Если же нажать на нее второй раз, то порядок сортировки будет обратным от будущей даты к прошедшей. &lt;/span&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:10pt;&quot;&gt;•  Кнопка &amp;quot;Домой&amp;quot; сортирует данные по прядку добавления их в таблицу от первого к последнему добавленному элементу. &lt;/span&gt;&lt;/p&gt;
+&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-size:10pt;&quot;&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:10pt;&quot;&gt;1.7. &lt;/span&gt;&lt;span style=&quot; font-size:10pt; text-decoration: underline;&quot;&gt;Удаление данных&lt;/span&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:10pt;&quot;&gt;° Для удаления данных необходимо выбрать (выделить) строку данных, которые необходимо удалить. После чего нужно нажать на кнопку &amp;quot;Удалить&amp;quot;. Далее вы увидите окно с сообщение для подтверждения, в котором будет описана строка данных (наименование и срок годности) для удаления. После подтверждения вопроса (кнопка &amp;quot;Yes&amp;quot;) будет произведено удаление данных из таблицы, после чего данная строка будет перемещена в таблицу с историей. &lt;/span&gt;&lt;/p&gt;
+&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-size:10pt;&quot;&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:10pt;&quot;&gt;1.8. &lt;/span&gt;&lt;span style=&quot; font-size:10pt; text-decoration: underline;&quot;&gt;Просмотр истории&lt;/span&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:10pt;&quot;&gt;○ Для перехода в окно истории необходимо нажать на кнопку &amp;quot;История&amp;quot;. Дальнейшие действия описаны в пункте 2 (ниже).&lt;/span&gt;&lt;/p&gt;
+&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-size:10pt;&quot;&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:10pt;&quot;&gt;1.9. &lt;/span&gt;&lt;span style=&quot; font-size:10pt; text-decoration: underline;&quot;&gt;Выход из программы&lt;/span&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:10pt;&quot;&gt;○ Для выхода из программы необходимо нажать на кнопку &amp;quot;Выход&amp;quot; или нажать на клавишу ESC или закрыть нажав на крестик в верхнем правом углу окна.&lt;/span&gt;&lt;/p&gt;
+&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-size:10pt;&quot;&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-size:10pt;&quot;&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:10pt; font-weight:600;&quot;&gt;2. Работа с вторичным окном программы - История&lt;/span&gt;&lt;/p&gt;
+&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-size:10pt;&quot;&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:10pt;&quot;&gt;2.1. &lt;/span&gt;&lt;span style=&quot; font-size:10pt; text-decoration: underline;&quot;&gt;Таблица истории&lt;/span&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:10pt;&quot;&gt;○ В ней отображаются ранее удаленные элементы в порядке их удаления. В таблице имеются 4 столбца: наименование, срок годности, дата удаления, дополнительная информация. Дата удаления формируется автоматически. Цветовое выделение такое же как и в главном окне (читать п.1.3.) за исключением зеленого цвета, т.к. данное окно предполагает что товар списан полностью и не находится на складе. &lt;/span&gt;&lt;/p&gt;
+&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-size:10pt;&quot;&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:10pt;&quot;&gt;2.1 &lt;/span&gt;&lt;span style=&quot; font-size:10pt; text-decoration: underline;&quot;&gt;Поиск данных в истории&lt;/span&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:10pt;&quot;&gt;○ Для поиска данных необходимо заполнить поле &amp;quot;Поиск по имени&amp;quot;, после чего нажать на кнопку &amp;quot;Поиск&amp;quot; или клавишу Enter. Далее в окне программы будут выведены все строки данных, которые удовлетворяют описку. Поиск работает по принципу поиска подстроки в строке, т.е. в строке Молоко &amp;quot;Коровий луг&amp;quot; подстрокой является все элементы произвольной длинны находящиеся в необходимом порядке в строке, такие как - мол, молоко, кор, луг и др. элементы содержащиеся в строке. Если нажать на кнопку &amp;quot;Поиск&amp;quot; при пустом (не заполненном) поле наименования, то в этом случае вы увидите все данные таблицы.&lt;/span&gt;&lt;/p&gt;
+&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-size:10pt;&quot;&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:10pt;&quot;&gt;2.2. &lt;/span&gt;&lt;span style=&quot; font-size:10pt; text-decoration: underline;&quot;&gt;Показать все данные таблицы истории&lt;/span&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:10pt;&quot;&gt;○ Кнопка &amp;quot;Домой&amp;quot; возвращает вас к полному списку истории, можно использовать после просмотра истории. &lt;/span&gt;&lt;/p&gt;
+&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-size:10pt;&quot;&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:10pt;&quot;&gt;2.3. &lt;/span&gt;&lt;span style=&quot; font-size:10pt; text-decoration: underline;&quot;&gt;Закрытие окна истории&lt;/span&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:10pt;&quot;&gt;○ Для выхода (закрытия) окна необходимо нажать на кнопку &amp;quot;Назад&amp;quot;, которая возвращает вас к главному окну программы и закрывает окно истории или же такую же функция выполнит крестик, закрывающий данное окно.&lt;/span&gt;&lt;/p&gt;
+&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-size:10pt;&quot;&gt;&lt;br /&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+   </property>
+  </widget>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>

@@ -1,5 +1,13 @@
 # Исключение лишних дичных папок
-.old_file/
+**/temp_files/
+**/old_file/
+**/exe_onedir/
+**/exe_onefile/
+**/temp_ico/
+
+# Мои файлы для исключения
+*/goods_rez.db
+*/.gitignore
 
 # Исключение каталога PyCharm (настройки среды)
 .idea/

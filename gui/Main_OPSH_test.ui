@@ -1,0 +1,880 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MainWindow</class>
+ <widget class="QMainWindow" name="MainWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>1200</width>
+    <height>785</height>
+   </rect>
+  </property>
+  <property name="minimumSize">
+   <size>
+    <width>1200</width>
+    <height>785</height>
+   </size>
+  </property>
+  <property name="maximumSize">
+   <size>
+    <width>1200</width>
+    <height>785</height>
+   </size>
+  </property>
+  <property name="font">
+   <font>
+    <family>Microsoft YaHei UI</family>
+    <pointsize>7</pointsize>
+    <weight>50</weight>
+    <bold>false</bold>
+   </font>
+  </property>
+  <property name="windowTitle">
+   <string>OPSHelper v 2.0</string>
+  </property>
+  <property name="windowIcon">
+   <iconset>
+    <normaloff>icons/rman.ico</normaloff>icons/rman.ico</iconset>
+  </property>
+  <property name="styleSheet">
+   <string notr="true"/>
+  </property>
+  <property name="windowFilePath">
+   <string/>
+  </property>
+  <property name="iconSize">
+   <size>
+    <width>48</width>
+    <height>48</height>
+   </size>
+  </property>
+  <property name="toolButtonStyle">
+   <enum>Qt::ToolButtonIconOnly</enum>
+  </property>
+  <property name="documentMode">
+   <bool>true</bool>
+  </property>
+  <property name="tabShape">
+   <enum>QTabWidget::Rounded</enum>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <property name="toolTip">
+    <string/>
+   </property>
+   <property name="statusTip">
+    <string/>
+   </property>
+   <property name="whatsThis">
+    <string/>
+   </property>
+   <property name="accessibleName">
+    <string/>
+   </property>
+   <property name="accessibleDescription">
+    <string/>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QWidget {
+background-color:qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0.119318 rgba(196, 206, 255, 255), stop:1 rgba(146, 219, 255, 255));
+}</string>
+   </property>
+   <widget class="QTableWidget" name="tableWidget_BD">
+    <property name="geometry">
+     <rect>
+      <x>20</x>
+      <y>120</y>
+      <width>1160</width>
+      <height>541</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Times New Roman</family>
+      <pointsize>11</pointsize>
+     </font>
+    </property>
+    <property name="mouseTracking">
+     <bool>false</bool>
+    </property>
+    <property name="focusPolicy">
+     <enum>Qt::NoFocus</enum>
+    </property>
+    <property name="layoutDirection">
+     <enum>Qt::LeftToRight</enum>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color: #e5f0ff;
+border: 2px solid #4169e1;
+border-radius: 1px;
+border-width: 2px;
+selection-background-color: rgb(0, 170, 255)
+</string>
+    </property>
+    <property name="frameShape">
+     <enum>QFrame::Panel</enum>
+    </property>
+    <property name="frameShadow">
+     <enum>QFrame::Plain</enum>
+    </property>
+    <property name="lineWidth">
+     <number>1</number>
+    </property>
+    <property name="midLineWidth">
+     <number>3</number>
+    </property>
+    <property name="verticalScrollBarPolicy">
+     <enum>Qt::ScrollBarAlwaysOn</enum>
+    </property>
+    <property name="horizontalScrollBarPolicy">
+     <enum>Qt::ScrollBarAsNeeded</enum>
+    </property>
+    <property name="sizeAdjustPolicy">
+     <enum>QAbstractScrollArea::AdjustToContents</enum>
+    </property>
+    <property name="selectionMode">
+     <enum>QAbstractItemView::SingleSelection</enum>
+    </property>
+    <property name="selectionBehavior">
+     <enum>QAbstractItemView::SelectRows</enum>
+    </property>
+    <property name="sortingEnabled">
+     <bool>false</bool>
+    </property>
+    <attribute name="verticalHeaderVisible">
+     <bool>false</bool>
+    </attribute>
+    <column>
+     <property name="text">
+      <string>Наименование</string>
+     </property>
+     <property name="font">
+      <font>
+       <weight>75</weight>
+       <italic>false</italic>
+       <bold>true</bold>
+       <underline>false</underline>
+      </font>
+     </property>
+     <property name="textAlignment">
+      <set>AlignCenter</set>
+     </property>
+    </column>
+    <column>
+     <property name="text">
+      <string>Срок годности</string>
+     </property>
+     <property name="font">
+      <font>
+       <weight>75</weight>
+       <bold>true</bold>
+      </font>
+     </property>
+     <property name="textAlignment">
+      <set>AlignCenter</set>
+     </property>
+    </column>
+    <column>
+     <property name="text">
+      <string>Дополнительная информация</string>
+     </property>
+     <property name="font">
+      <font>
+       <weight>75</weight>
+       <bold>true</bold>
+       <strikeout>false</strikeout>
+      </font>
+     </property>
+     <property name="textAlignment">
+      <set>AlignCenter</set>
+     </property>
+    </column>
+   </widget>
+   <widget class="QLineEdit" name="lineEdit_search">
+    <property name="geometry">
+     <rect>
+      <x>20</x>
+      <y>70</y>
+      <width>1021</width>
+      <height>41</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>10</pointsize>
+     </font>
+    </property>
+    <property name="cursor">
+     <cursorShape>IBeamCursor</cursorShape>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QLineEdit {
+	background-color: #e5f0ff;
+	border: 2px solid #4169e1;
+	border-radius: 10px;
+	border-width: 2px;	
+	selection-background-color: rgb(0, 170, 255)
+}
+
+QLineEdit:hover{
+	background-color: #bdd7ff
+}</string>
+    </property>
+    <property name="placeholderText">
+     <string>  Поиск по имени </string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="pushButton_home">
+    <property name="geometry">
+     <rect>
+      <x>540</x>
+      <y>670</y>
+      <width>161</width>
+      <height>41</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Constantia</family>
+      <pointsize>12</pointsize>
+      <weight>75</weight>
+      <bold>true</bold>
+     </font>
+    </property>
+    <property name="toolTip">
+     <string>Перейти к общему списку</string>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QPushButton{
+	background-color: #e5f0ff;
+	border: 2px solid #4169e1;
+	border-radius: 10px;
+	border-width: 2px;
+	selection-background-color: qlineargradient(x1: 0, y1: 0, x2: 0.5, y2: 0.5, 
+    stop: 0 #FF92BB, stop: 1 white);
+}
+
+QPushButton:hover{
+	background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0.142045 rgba(172, 167, 255, 255), stop:1 rgba(135, 215, 255, 255))
+}
+
+QPushButton:pressed{
+	background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0.142045 rgba(196, 192, 255, 255), stop:1 rgba(162, 224, 255, 255))
+}</string>
+    </property>
+    <property name="text">
+     <string>Домой</string>
+    </property>
+    <property name="icon">
+     <iconset>
+      <normaloff>../icons/h3.ico</normaloff>../icons/h3.ico</iconset>
+    </property>
+    <property name="iconSize">
+     <size>
+      <width>32</width>
+      <height>32</height>
+     </size>
+    </property>
+   </widget>
+   <widget class="QLineEdit" name="lineEdit_name">
+    <property name="geometry">
+     <rect>
+      <x>240</x>
+      <y>20</y>
+      <width>411</width>
+      <height>41</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>10</pointsize>
+     </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QLineEdit {
+	background-color: #e5f0ff;
+	border: 2px solid #4169e1;
+	border-radius: 10px;
+	border-width: 2px;	
+	selection-background-color: rgb(0, 170, 255)
+}
+
+QLineEdit:hover{
+	background-color: #bdd7ff
+}</string>
+    </property>
+    <property name="inputMask">
+     <string/>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+    <property name="placeholderText">
+     <string>  Наименование</string>
+    </property>
+   </widget>
+   <widget class="QLineEdit" name="lineEdit_date">
+    <property name="geometry">
+     <rect>
+      <x>660</x>
+      <y>20</y>
+      <width>121</width>
+      <height>41</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>10</pointsize>
+     </font>
+    </property>
+    <property name="focusPolicy">
+     <enum>Qt::StrongFocus</enum>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QLineEdit {
+	background-color: #e5f0ff;
+	border: 2px solid #4169e1;
+	border-radius: 10px;
+	border-width: 2px;	
+	selection-background-color: rgb(0, 170, 255)
+}
+
+QLineEdit:hover{
+	background-color: #bdd7ff
+}</string>
+    </property>
+    <property name="placeholderText">
+     <string>  Дата</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="pushButton_add">
+    <property name="geometry">
+     <rect>
+      <x>1050</x>
+      <y>20</y>
+      <width>131</width>
+      <height>41</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Constantia</family>
+      <pointsize>12</pointsize>
+      <weight>75</weight>
+      <bold>true</bold>
+     </font>
+    </property>
+    <property name="toolTip">
+     <string/>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QPushButton{
+	background-color: #e5f0ff;
+	border: 2px solid #4169e1;
+	border-radius: 10px;
+	border-width: 2px;
+	selection-background-color: qlineargradient(x1: 0, y1: 0, x2: 0.5, y2: 0.5, 
+    stop: 0 #FF92BB, stop: 1 white);
+}
+
+QPushButton:hover{
+	background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0.142045 rgba(172, 167, 255, 255), stop:1 rgba(135, 215, 255, 255))
+}
+
+QPushButton:pressed{
+	background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0.142045 rgba(196, 192, 255, 255), stop:1 rgba(162, 224, 255, 255))
+}</string>
+    </property>
+    <property name="text">
+     <string>Добавить</string>
+    </property>
+    <property name="icon">
+     <iconset>
+      <normaloff>icons/add.ico</normaloff>icons/add.ico</iconset>
+    </property>
+    <property name="iconSize">
+     <size>
+      <width>32</width>
+      <height>32</height>
+     </size>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_info_add">
+    <property name="geometry">
+     <rect>
+      <x>20</x>
+      <y>20</y>
+      <width>211</width>
+      <height>41</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Constantia</family>
+      <pointsize>11</pointsize>
+     </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color: none</string>
+    </property>
+    <property name="text">
+     <string>Добавление новых элементов:</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="pushButton_SortDate">
+    <property name="geometry">
+     <rect>
+      <x>320</x>
+      <y>670</y>
+      <width>211</width>
+      <height>41</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Constantia</family>
+      <pointsize>12</pointsize>
+      <weight>75</weight>
+      <bold>true</bold>
+     </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QPushButton{
+	background-color: #e5f0ff;
+	border: 2px solid #4169e1;
+	border-radius: 10px;
+	border-width: 2px;
+	selection-background-color: qlineargradient(x1: 0, y1: 0, x2: 0.5, y2: 0.5, 
+    stop: 0 #FF92BB, stop: 1 white);
+}
+
+QPushButton:hover{
+	background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0.142045 rgba(172, 167, 255, 255), stop:1 rgba(135, 215, 255, 255))
+}
+
+QPushButton:pressed{
+	background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0.142045 rgba(196, 192, 255, 255), stop:1 rgba(162, 224, 255, 255))
+}</string>
+    </property>
+    <property name="text">
+     <string>По сроку годности</string>
+    </property>
+    <property name="icon">
+     <iconset>
+      <normaloff>../icons/sort.ico</normaloff>../icons/sort.ico</iconset>
+    </property>
+    <property name="iconSize">
+     <size>
+      <width>32</width>
+      <height>32</height>
+     </size>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="pushButton_SortName">
+    <property name="geometry">
+     <rect>
+      <x>100</x>
+      <y>670</y>
+      <width>211</width>
+      <height>41</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Constantia</family>
+      <pointsize>12</pointsize>
+      <weight>75</weight>
+      <bold>true</bold>
+     </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QPushButton{
+	background-color: #e5f0ff;
+	border: 2px solid #4169e1;
+	border-radius: 10px;
+	border-width: 2px;
+	selection-background-color: qlineargradient(x1: 0, y1: 0, x2: 0.5, y2: 0.5, 
+    stop: 0 #FF92BB, stop: 1 white);
+}
+
+QPushButton:hover{
+	background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0.142045 rgba(172, 167, 255, 255), stop:1 rgba(135, 215, 255, 255))
+}
+
+QPushButton:pressed{
+	background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0.142045 rgba(196, 192, 255, 255), stop:1 rgba(162, 224, 255, 255))
+}</string>
+    </property>
+    <property name="text">
+     <string>По наименованию</string>
+    </property>
+    <property name="icon">
+     <iconset>
+      <normaloff>../icons/sort.ico</normaloff>../icons/sort.ico</iconset>
+    </property>
+    <property name="iconSize">
+     <size>
+      <width>32</width>
+      <height>32</height>
+     </size>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="pushButton_delete">
+    <property name="geometry">
+     <rect>
+      <x>870</x>
+      <y>670</y>
+      <width>151</width>
+      <height>41</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Constantia</family>
+      <pointsize>12</pointsize>
+      <weight>75</weight>
+      <bold>true</bold>
+     </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QPushButton{
+	background-color: #e5f0ff;
+	border: 2px solid #4169e1;
+	border-radius: 10px;
+	border-width: 2px;
+	selection-background-color: qlineargradient(x1: 0, y1: 0, x2: 0.5, y2: 0.5, 
+    stop: 0 #FF92BB, stop: 1 white);
+}
+
+QPushButton:hover{
+	background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0.142045 rgba(172, 167, 255, 255), stop:1 rgba(135, 215, 255, 255))
+}
+
+QPushButton:pressed{
+	background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0.142045 rgba(196, 192, 255, 255), stop:1 rgba(162, 224, 255, 255))
+}</string>
+    </property>
+    <property name="text">
+     <string>Удалить</string>
+    </property>
+    <property name="icon">
+     <iconset>
+      <normaloff>../icons/del.ico</normaloff>../icons/del.ico</iconset>
+    </property>
+    <property name="iconSize">
+     <size>
+      <width>32</width>
+      <height>32</height>
+     </size>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_info_add_2">
+    <property name="geometry">
+     <rect>
+      <x>1010</x>
+      <y>720</y>
+      <width>181</width>
+      <height>41</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Bahnschrift Light Condensed</family>
+      <pointsize>11</pointsize>
+     </font>
+    </property>
+    <property name="toolTip">
+     <string>Разработал Козин Егор Технополис &quot;ЭРА&quot; для своей мамы</string>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color: none</string>
+    </property>
+    <property name="text">
+     <string>© 2022 ЭРА. Все права защищены.</string>
+    </property>
+   </widget>
+   <widget class="QLineEdit" name="lineEdit_dop">
+    <property name="geometry">
+     <rect>
+      <x>790</x>
+      <y>20</y>
+      <width>251</width>
+      <height>41</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>10</pointsize>
+     </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QLineEdit {
+	background-color: #e5f0ff;
+	border: 2px solid #4169e1;
+	border-radius: 10px;
+	border-width: 2px;	
+	selection-background-color: rgb(0, 170, 255);
+}
+
+QLineEdit:hover{
+	background-color: #bdd7ff
+}</string>
+    </property>
+    <property name="inputMask">
+     <string/>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+    <property name="placeholderText">
+     <string>  Дополнительная информация</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="pushButton_search">
+    <property name="geometry">
+     <rect>
+      <x>1050</x>
+      <y>70</y>
+      <width>131</width>
+      <height>41</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Constantia</family>
+      <pointsize>12</pointsize>
+      <weight>75</weight>
+      <bold>true</bold>
+     </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QPushButton{
+	background-color: #e5f0ff;
+	border: 2px solid #4169e1;
+	border-radius: 10px;
+	border-width: 2px;
+	selection-background-color: qlineargradient(x1: 0, y1: 0, x2: 0.5, y2: 0.5, 
+    stop: 0 #FF92BB, stop: 1 white);
+}
+
+QPushButton:hover{
+	background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0.142045 rgba(172, 167, 255, 255), stop:1 rgba(135, 215, 255, 255))
+}
+
+QPushButton:pressed{
+	background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0.142045 rgba(196, 192, 255, 255), stop:1 rgba(162, 224, 255, 255))
+}</string>
+    </property>
+    <property name="text">
+     <string>Поиск</string>
+    </property>
+    <property name="icon">
+     <iconset>
+      <normaloff>icons/search.ico</normaloff>icons/search.ico</iconset>
+    </property>
+    <property name="iconSize">
+     <size>
+      <width>32</width>
+      <height>32</height>
+     </size>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="pushButton_history">
+    <property name="geometry">
+     <rect>
+      <x>710</x>
+      <y>670</y>
+      <width>151</width>
+      <height>41</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Constantia</family>
+      <pointsize>12</pointsize>
+      <weight>75</weight>
+      <bold>true</bold>
+     </font>
+    </property>
+    <property name="toolTip">
+     <string>Кнопка пока не работает</string>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QPushButton{
+	background-color: #e5f0ff;
+	border: 2px solid #4169e1;
+	border-radius: 10px;
+	border-width: 2px;
+	selection-background-color: qlineargradient(x1: 0, y1: 0, x2: 0.5, y2: 0.5, 
+    stop: 0 #FF92BB, stop: 1 white);
+}
+
+QPushButton:hover{
+	background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0.142045 rgba(172, 167, 255, 255), stop:1 rgba(135, 215, 255, 255))
+}
+
+QPushButton:pressed{
+	background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0.142045 rgba(196, 192, 255, 255), stop:1 rgba(162, 224, 255, 255))
+}</string>
+    </property>
+    <property name="text">
+     <string>История</string>
+    </property>
+    <property name="icon">
+     <iconset>
+      <normaloff>../icons/info_stories.ico</normaloff>../icons/info_stories.ico</iconset>
+    </property>
+    <property name="iconSize">
+     <size>
+      <width>32</width>
+      <height>32</height>
+     </size>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="pushButton_exit">
+    <property name="geometry">
+     <rect>
+      <x>1030</x>
+      <y>670</y>
+      <width>151</width>
+      <height>41</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Constantia</family>
+      <pointsize>12</pointsize>
+      <weight>75</weight>
+      <bold>true</bold>
+     </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QPushButton{
+	background-color: #e5f0ff;
+	border: 2px solid #4169e1;
+	border-radius: 10px;
+	border-width: 2px;
+	selection-background-color: qlineargradient(x1: 0, y1: 0, x2: 0.5, y2: 0.5, 
+    stop: 0 #FF92BB, stop: 1 white);
+}
+
+QPushButton:hover{
+	background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0.142045 rgba(172, 167, 255, 255), stop:1 rgba(135, 215, 255, 255))
+}
+
+QPushButton:pressed{
+	background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0.142045 rgba(196, 192, 255, 255), stop:1 rgba(162, 224, 255, 255))
+}</string>
+    </property>
+    <property name="text">
+     <string>Выход</string>
+    </property>
+    <property name="icon">
+     <iconset>
+      <normaloff>../icons/e2.ico</normaloff>../icons/e2.ico</iconset>
+    </property>
+    <property name="iconSize">
+     <size>
+      <width>32</width>
+      <height>32</height>
+     </size>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="pushButton_mark">
+    <property name="geometry">
+     <rect>
+      <x>20</x>
+      <y>670</y>
+      <width>71</width>
+      <height>41</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Constantia</family>
+      <pointsize>12</pointsize>
+      <weight>75</weight>
+      <bold>true</bold>
+     </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QPushButton{
+	background-color: #e5f0ff;
+	border: 2px solid #4169e1;
+	border-radius: 10px;
+	border-width: 2px;
+	selection-background-color: qlineargradient(x1: 0, y1: 0, x2: 0.5, y2: 0.5, 
+    stop: 0 #FF92BB, stop: 1 white);
+}
+
+QPushButton:hover{
+	background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0.142045 rgba(172, 167, 255, 255), stop:1 rgba(135, 215, 255, 255))
+}
+
+QPushButton:pressed{
+	background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0.142045 rgba(196, 192, 255, 255), stop:1 rgba(162, 224, 255, 255))
+}</string>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+    <property name="icon">
+     <iconset>
+      <normaloff>../icons/Checkmark.ico</normaloff>../icons/Checkmark.ico</iconset>
+    </property>
+    <property name="iconSize">
+     <size>
+      <width>32</width>
+      <height>32</height>
+     </size>
+    </property>
+   </widget>
+  </widget>
+  <widget class="QMenuBar" name="menubar">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>1200</width>
+     <height>21</height>
+    </rect>
+   </property>
+   <property name="toolTip">
+    <string/>
+   </property>
+   <property name="accessibleName">
+    <string/>
+   </property>
+   <property name="defaultUp">
+    <bool>false</bool>
+   </property>
+   <property name="nativeMenuBar">
+    <bool>true</bool>
+   </property>
+   <widget class="QMenu" name="menu">
+    <property name="title">
+     <string>Инструкция</string>
+    </property>
+   </widget>
+   <widget class="QMenu" name="menu_2">
+    <property name="title">
+     <string>О программе</string>
+    </property>
+   </widget>
+   <addaction name="menu"/>
+   <addaction name="menu_2"/>
+  </widget>
+  <action name="action_Open">
+   <property name="text">
+    <string>&amp; Инструкция</string>
+   </property>
+  </action>
+  <action name="action_4">
+   <property name="text">
+    <string>&amp; О программе</string>
+   </property>
+  </action>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>
