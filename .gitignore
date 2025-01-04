@@ -4,6 +4,8 @@
 **/exe_onedir/
 **/exe_onefile/
 **/temp_ico/
+code/req.txt
+goods.db
 
 # Мои файлы для исключения
 */goods_rez.db

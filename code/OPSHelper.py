@@ -12,14 +12,14 @@ import shutil
 
 from datetime import datetime
 from main_windows import Ui_MainWindow
-from history_windows import Ui_History_Windowss
+from history_windows import Ui_History_Windows
 
 
 from PyQt5.QtWidgets import QWidget, QMenu, QApplication, QMessageBox, QAbstractItemView, QTableWidgetItem, QMainWindow #, QTableWidget, QLineEdit
 from PyQt5.QtGui import QColor, QRegExpValidator  # QKeyEvent
 from PyQt5.QtPrintSupport import QPrinter, QPrintDialog
 from PyQt5.QtCore import Qt, QRegExp, QDate # QSize,
-from PyQt5.QtGui import QTextDocument
+from PyQt5.QtGui import QTextDocument, QFont
 
 
 def rpatha(filename):
@@ -52,17 +52,21 @@ class MainWindow(QMainWindow,Ui_MainWindow):
     def __init__(self):
         super(MainWindow, self).__init__()
         self.setupUi(self)
-        self.setup_date_field() #???
-        self.lineEdit_date.editingFinished.connect(self.validate_date)
 
-        self.lineEdit_date.setPlaceholderText(" ДД.ММ.ГГГГ")  # Подсказка
-        #self.lineEdit_date.setMaxLength(10)  # Ограничиваем длину ввода до 10 символов (формат дд.мм.гггг)
-        self.style_table() # Применяет стили к таблице приложения
-        self.T_select_table('prod','date') # При первом запуске приложения выводи таблицу prod
-        self.click_button() # Активирует (отслеживается нажатия) кнопки
-        self.setup_context_menu() # Для работы ПКМ
-        self.ongoing_n = True # Используется для сигнала нажатия кнопки - по наименованию 
-        self.ongoing_d = True # Используется для сигнала нажатия кнопки - по сроку годности
+        # Настройка полей для ввода даты
+        self.date_fields = [self.lineEdit_date, self.lineEdit_date_4, self.lineEdit_date_5]
+        self.setup_date_field()
+        
+        for field in self.date_fields:
+            field.editingFinished.connect(self.validate_date)
+            field.setPlaceholderText("дд.мм.гггг")  # Подсказка
+
+        self.style_table()  # Применяет стили к таблице приложения
+        self.T_select_table('prod', 'date')  # При первом запуске приложения выводи таблицу prod
+        self.click_button()  # Активирует (отслеживается нажатия) кнопки
+        self.setup_context_menu()  # Для работы ПКМ
+        self.ongoing_n = True  # Используется для сигнала нажатия кнопки - по наименованию
+        self.ongoing_d = True  # Используется для сигнала нажатия кнопки - по сроку годности
 
 
     # Функция стилей, размер колонок в пикселях.
@@ -76,24 +80,28 @@ class MainWindow(QMainWindow,Ui_MainWindow):
         self.tableWidget_BD.setSelectionBehavior(QAbstractItemView.SelectRows) # Выделить всю строку при нажатии
         self.tableWidget_BD.setSelectionMode(QAbstractItemView.ExtendedSelection) # Контекстное меню ПКМ
         self.tableWidget_BD.setSelectionBehavior(QAbstractItemView.SelectItems) #
+        #self.setStyleSheet("QWidget { font-size: 13px; font-family: 'San Francisco'; }")
+        
 
     def setup_date_field(self):
-        """Настройка поля для ввода даты с ограничением ввода только чисел"""
-        # Регулярное выражение для формата дд.мм.гггг
-        date_regex = QRegExp(r"\d{1,2}[\.,]\d{1,2}[\.,]\d{4}")  # Разрешает ввод по маске
-        validator = QRegExpValidator(date_regex, self.lineEdit_date)
-        self.lineEdit_date.setValidator(validator)  # Устанавливаем валидатор
-        self.lineEdit_date.setPlaceholderText("дд.мм.гггг")  # Подсказка для пользователя
-        self.lineEdit_date.setMaxLength(10)  # Ограничиваем длину до 10 символов (формат даты)
+        """Настройка всех полей для ввода даты с ограничением ввода только чисел"""
+        date_regex = QRegExp(r"\d{1,2}[\.,]\d{1,2}[\.,]\d{4}")  # Регулярное выражение для формата дд.мм.гггг
+        validator = QRegExpValidator(date_regex)
+        
+        for field in self.date_fields:
+            field.setValidator(validator)
+            field.setMaxLength(10)  # Ограничиваем длину до 10 символов (формат даты)
 
     def validate_date(self):
         """Проверка правильности введенной даты"""
-        text = self.lineEdit_date.text()
+        sender_field = self.sender()  # Определяем, из какого поля вызвана проверка
+        text = sender_field.text()
         date = QDate.fromString(text, "dd.MM.yyyy")
-        # if not date.isValid():
-        #     QMessageBox.warning(self, "Ошибка ввода", "Введите корректную дату в формате дд.мм.гггг.")
-        #     self.lineEdit_date.setFocus()
-        #     self.lineEdit_date.selectAll()
+        
+        if not date.isValid():
+            QMessageBox.warning(self, "Ошибка ввода", "Введите корректную дату в формате дд.мм.гггг.")
+            sender_field.setFocus()
+            sender_field.selectAll()
 
     ##############################################################--Функции кнопок в программе--##################################################################
     

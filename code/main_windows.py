@@ -7,6 +7,7 @@
 # WARNING! All changes made in this file will be lost!
 
 from PyQt5 import QtCore, QtGui, QtWidgets
+from PyQt5.QtGui import QFontDatabase, QFont
 from PyQt5.QtCore import QSize, Qt
 from instruction_windows import Ui_Tools_Windows
 from hotkey_windows import Ui_Hot_Windows
@@ -106,7 +107,7 @@ class Ui_MainWindow(object):
         self.tableWidget_BD.setHorizontalHeaderItem(2, item)
         self.tableWidget_BD.verticalHeader().setVisible(False)
         self.lineEdit_search = QtWidgets.QLineEdit(self.centralwidget)
-        self.lineEdit_search.setGeometry(QtCore.QRect(20, 70, 1021, 41))
+        self.lineEdit_search.setGeometry(QtCore.QRect(20, 70, 761, 41))
         font = QtGui.QFont()
         font.setFamily("Ubuntu")
         font.setPointSize(10)
@@ -115,16 +116,16 @@ class Ui_MainWindow(object):
         self.lineEdit_search.setFont(font)
         self.lineEdit_search.setCursor(QtGui.QCursor(QtCore.Qt.IBeamCursor))
         self.lineEdit_search.setStyleSheet("QLineEdit {\n"
-"    background-color: #e5f0ff;\n"
-"    border: 2px solid #4169e1;\n"
-"    border-radius: 10px;\n"
-"    border-width: 2px;    \n"
-"    selection-background-color: rgb(0, 170, 255)\n"
-"}\n"
-"\n"
-"QLineEdit:hover{\n"
-"    background-color: #bdd7ff\n"
-"}")
+                                                        "    background-color: #e5f0ff;\n"
+                                                        "    border: 2px solid #4169e1;\n"
+                                                        "    border-radius: 10px;\n"
+                                                        "    border-width: 2px;    \n"
+                                                        "    selection-background-color: rgb(0, 170, 255)\n"
+                                                        "}\n"
+                                                        "\n"
+                                                        "QLineEdit:hover{\n"
+                                                        "    background-color: #bdd7ff\n"
+                                                        "}")
         self.lineEdit_search.setObjectName("lineEdit_search")
         self.pushButton_home = QtWidgets.QPushButton(self.centralwidget)
         self.pushButton_home.setGeometry(QtCore.QRect(540, 670, 161, 41))
@@ -135,21 +136,21 @@ class Ui_MainWindow(object):
         font.setWeight(75)
         self.pushButton_home.setFont(font)
         self.pushButton_home.setStyleSheet("QPushButton{\n"
-"    background-color: #e5f0ff;\n"
-"    border: 2px solid #4169e1;\n"
-"    border-radius: 10px;\n"
-"    border-width: 2px;\n"
-"    selection-background-color: qlineargradient(x1: 0, y1: 0, x2: 0.5, y2: 0.5, \n"
-"    stop: 0 #FF92BB, stop: 1 white);\n"
-"}\n"
-"\n"
-"QPushButton:hover{\n"
-"    background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0.142045 rgba(172, 167, 255, 255), stop:1 rgba(135, 215, 255, 255))\n"
-"}\n"
-"\n"
-"QPushButton:pressed{\n"
-"    background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0.142045 rgba(196, 192, 255, 255), stop:1 rgba(162, 224, 255, 255))\n"
-"}")
+                                                        "    background-color: #e5f0ff;\n"
+                                                        "    border: 2px solid #4169e1;\n"
+                                                        "    border-radius: 10px;\n"
+                                                        "    border-width: 2px;\n"
+                                                        "    selection-background-color: qlineargradient(x1: 0, y1: 0, x2: 0.5, y2: 0.5, \n"
+                                                        "    stop: 0 #FF92BB, stop: 1 white);\n"
+                                                        "}\n"
+                                                        "\n"
+                                                        "QPushButton:hover{\n"
+                                                        "    background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0.142045 rgba(172, 167, 255, 255), stop:1 rgba(135, 215, 255, 255))\n"
+                                                        "}\n"
+                                                        "\n"
+                                                        "QPushButton:pressed{\n"
+                                                        "    background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0.142045 rgba(196, 192, 255, 255), stop:1 rgba(162, 224, 255, 255))\n"
+                                                        "}")
         icon1 = QtGui.QIcon()
         icon1.addPixmap(QtGui.QPixmap(rpatha("h3.ico")), QtGui.QIcon.Normal, QtGui.QIcon.Off)
         self.pushButton_home.setIcon(icon1)
@@ -164,20 +165,21 @@ class Ui_MainWindow(object):
         font.setWeight(50)
         self.lineEdit_name.setFont(font)
         self.lineEdit_name.setStyleSheet("QLineEdit {\n"
-"    background-color: #e5f0ff;\n"
-"    border: 2px solid #4169e1;\n"
-"    border-radius: 10px;\n"
-"    border-width: 2px;    \n"
-"    selection-background-color: rgb(0, 170, 255)\n"
-"}\n"
-"\n"
-"QLineEdit:hover{\n"
-"    background-color: #bdd7ff\n"
-"}")
+                                                        "    background-color: #e5f0ff;\n"
+                                                        "    border: 2px solid #4169e1;\n"
+                                                        "    border-radius: 10px;\n"
+                                                        "    border-width: 2px;    \n"
+                                                        "    selection-background-color: rgb(0, 170, 255)\n"
+                                                        "}\n"
+                                                        "\n"
+                                                        "QLineEdit:hover{\n"
+                                                        "    background-color: #bdd7ff\n"
+                                                        "}")
         self.lineEdit_name.setInputMask("")
         self.lineEdit_name.setText("")
         self.lineEdit_name.setObjectName("lineEdit_name")
         self.lineEdit_date = QtWidgets.QLineEdit(self.centralwidget)
+        self.lineEdit_date.setAlignment(Qt.AlignCenter)
         self.lineEdit_date.setGeometry(QtCore.QRect(660, 20, 121, 41))
         font = QtGui.QFont()
         font.setFamily("Ubuntu")
@@ -187,16 +189,16 @@ class Ui_MainWindow(object):
         self.lineEdit_date.setFont(font)
         self.lineEdit_date.setFocusPolicy(QtCore.Qt.StrongFocus)
         self.lineEdit_date.setStyleSheet("QLineEdit {\n"
-"    background-color: #e5f0ff;\n"
-"    border: 2px solid #4169e1;\n"
-"    border-radius: 10px;\n"
-"    border-width: 2px;    \n"
-"    selection-background-color: rgb(0, 170, 255)\n"
-"}\n"
-"\n"
-"QLineEdit:hover{\n"
-"    background-color: #bdd7ff\n"
-"}")
+                                                        "    background-color: #e5f0ff;\n"
+                                                        "    border: 2px solid #4169e1;\n"
+                                                        "    border-radius: 10px;\n"
+                                                        "    border-width: 2px;    \n"
+                                                        "    selection-background-color: rgb(0, 170, 255)\n"
+                                                        "}\n"
+                                                        "\n"
+                                                        "QLineEdit:hover{\n"
+                                                        "    background-color: #bdd7ff\n"
+                                                        "}")
         self.lineEdit_date.setObjectName("lineEdit_date")
         self.pushButton_add = QtWidgets.QPushButton(self.centralwidget)
         self.pushButton_add.setGeometry(QtCore.QRect(1050, 20, 131, 41))
@@ -208,21 +210,21 @@ class Ui_MainWindow(object):
         self.pushButton_add.setFont(font)
         self.pushButton_add.setToolTip("")
         self.pushButton_add.setStyleSheet("QPushButton{\n"
-"    background-color: #e5f0ff;\n"
-"    border: 2px solid #4169e1;\n"
-"    border-radius: 10px;\n"
-"    border-width: 2px;\n"
-"    selection-background-color: qlineargradient(x1: 0, y1: 0, x2: 0.5, y2: 0.5, \n"
-"    stop: 0 #FF92BB, stop: 1 white);\n"
-"}\n"
-"\n"
-"QPushButton:hover{\n"
-"    background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0.142045 rgba(172, 167, 255, 255), stop:1 rgba(135, 215, 255, 255))\n"
-"}\n"
-"\n"
-"QPushButton:pressed{\n"
-"    background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0.142045 rgba(196, 192, 255, 255), stop:1 rgba(162, 224, 255, 255))\n"
-"}")
+                                                        "    background-color: #e5f0ff;\n"
+                                                        "    border: 2px solid #4169e1;\n"
+                                                        "    border-radius: 10px;\n"
+                                                        "    border-width: 2px;\n"
+                                                        "    selection-background-color: qlineargradient(x1: 0, y1: 0, x2: 0.5, y2: 0.5, \n"
+                                                        "    stop: 0 #FF92BB, stop: 1 white);\n"
+                                                        "}\n"
+                                                        "\n"
+                                                        "QPushButton:hover{\n"
+                                                        "    background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0.142045 rgba(172, 167, 255, 255), stop:1 rgba(135, 215, 255, 255))\n"
+                                                        "}\n"
+                                                        "\n"
+                                                        "QPushButton:pressed{\n"
+                                                        "    background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0.142045 rgba(196, 192, 255, 255), stop:1 rgba(162, 224, 255, 255))\n"
+                                                        "}")
         icon2 = QtGui.QIcon()
         icon2.addPixmap(QtGui.QPixmap(rpatha("add2.ico")), QtGui.QIcon.Normal, QtGui.QIcon.Off)
         self.pushButton_add.setIcon(icon2)
@@ -247,21 +249,21 @@ class Ui_MainWindow(object):
         font.setWeight(75)
         self.pushButton_SortDate.setFont(font)
         self.pushButton_SortDate.setStyleSheet("QPushButton{\n"
-"    background-color: #e5f0ff;\n"
-"    border: 2px solid #4169e1;\n"
-"    border-radius: 10px;\n"
-"    border-width: 2px;\n"
-"    selection-background-color: qlineargradient(x1: 0, y1: 0, x2: 0.5, y2: 0.5, \n"
-"    stop: 0 #FF92BB, stop: 1 white);\n"
-"}\n"
-"\n"
-"QPushButton:hover{\n"
-"    background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0.142045 rgba(172, 167, 255, 255), stop:1 rgba(135, 215, 255, 255))\n"
-"}\n"
-"\n"
-"QPushButton:pressed{\n"
-"    background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0.142045 rgba(196, 192, 255, 255), stop:1 rgba(162, 224, 255, 255))\n"
-"}")
+                                                                "    background-color: #e5f0ff;\n"
+                                                                "    border: 2px solid #4169e1;\n"
+                                                                "    border-radius: 10px;\n"
+                                                                "    border-width: 2px;\n"
+                                                                "    selection-background-color: qlineargradient(x1: 0, y1: 0, x2: 0.5, y2: 0.5, \n"
+                                                                "    stop: 0 #FF92BB, stop: 1 white);\n"
+                                                                "}\n"
+                                                                "\n"
+                                                                "QPushButton:hover{\n"
+                                                                "    background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0.142045 rgba(172, 167, 255, 255), stop:1 rgba(135, 215, 255, 255))\n"
+                                                                "}\n"
+                                                                "\n"
+                                                                "QPushButton:pressed{\n"
+                                                                "    background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0.142045 rgba(196, 192, 255, 255), stop:1 rgba(162, 224, 255, 255))\n"
+                                                                "}")
         icon3 = QtGui.QIcon()
         icon3.addPixmap(QtGui.QPixmap(rpatha("sort.png")), QtGui.QIcon.Normal, QtGui.QIcon.Off)
         self.pushButton_SortDate.setIcon(icon3)
@@ -276,21 +278,21 @@ class Ui_MainWindow(object):
         font.setWeight(75)
         self.pushButton_SortName.setFont(font)
         self.pushButton_SortName.setStyleSheet("QPushButton{\n"
-"    background-color: #e5f0ff;\n"
-"    border: 2px solid #4169e1;\n"
-"    border-radius: 10px;\n"
-"    border-width: 2px;\n"
-"    selection-background-color: qlineargradient(x1: 0, y1: 0, x2: 0.5, y2: 0.5, \n"
-"    stop: 0 #FF92BB, stop: 1 white);\n"
-"}\n"
-"\n"
-"QPushButton:hover{\n"
-"    background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0.142045 rgba(172, 167, 255, 255), stop:1 rgba(135, 215, 255, 255))\n"
-"}\n"
-"\n"
-"QPushButton:pressed{\n"
-"    background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0.142045 rgba(196, 192, 255, 255), stop:1 rgba(162, 224, 255, 255))\n"
-"}")
+                                                                "    background-color: #e5f0ff;\n"
+                                                                "    border: 2px solid #4169e1;\n"
+                                                                "    border-radius: 10px;\n"
+                                                                "    border-width: 2px;\n"
+                                                                "    selection-background-color: qlineargradient(x1: 0, y1: 0, x2: 0.5, y2: 0.5, \n"
+                                                                "    stop: 0 #FF92BB, stop: 1 white);\n"
+                                                                "}\n"
+                                                                "\n"
+                                                                "QPushButton:hover{\n"
+                                                                "    background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0.142045 rgba(172, 167, 255, 255), stop:1 rgba(135, 215, 255, 255))\n"
+                                                                "}\n"
+                                                                "\n"
+                                                                "QPushButton:pressed{\n"
+                                                                "    background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0.142045 rgba(196, 192, 255, 255), stop:1 rgba(162, 224, 255, 255))\n"
+                                                                "}")
         self.pushButton_SortName.setIcon(icon3)
         self.pushButton_SortName.setIconSize(QtCore.QSize(32, 32))
         self.pushButton_SortName.setObjectName("pushButton_SortName")
@@ -303,28 +305,28 @@ class Ui_MainWindow(object):
         font.setWeight(75)
         self.pushButton_delete.setFont(font)
         self.pushButton_delete.setStyleSheet("QPushButton{\n"
-"    background-color: #e5f0ff;\n"
-"    border: 2px solid #4169e1;\n"
-"    border-radius: 10px;\n"
-"    border-width: 2px;\n"
-"    selection-background-color: qlineargradient(x1: 0, y1: 0, x2: 0.5, y2: 0.5, \n"
-"    stop: 0 #FF92BB, stop: 1 white);\n"
-"}\n"
-"\n"
-"QPushButton:hover{\n"
-"    background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0.142045 rgba(172, 167, 255, 255), stop:1 rgba(135, 215, 255, 255))\n"
-"}\n"
-"\n"
-"QPushButton:pressed{\n"
-"    background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0.142045 rgba(196, 192, 255, 255), stop:1 rgba(162, 224, 255, 255))\n"
-"}")
+                                                        "    background-color: #e5f0ff;\n"
+                                                        "    border: 2px solid #4169e1;\n"
+                                                        "    border-radius: 10px;\n"
+                                                        "    border-width: 2px;\n"
+                                                        "    selection-background-color: qlineargradient(x1: 0, y1: 0, x2: 0.5, y2: 0.5, \n"
+                                                        "    stop: 0 #FF92BB, stop: 1 white);\n"
+                                                        "}\n"
+                                                        "\n"
+                                                        "QPushButton:hover{\n"
+                                                        "    background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0.142045 rgba(172, 167, 255, 255), stop:1 rgba(135, 215, 255, 255))\n"
+                                                        "}\n"
+                                                        "\n"
+                                                        "QPushButton:pressed{\n"
+                                                        "    background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0.142045 rgba(196, 192, 255, 255), stop:1 rgba(162, 224, 255, 255))\n"
+                                                        "}")
         icon4 = QtGui.QIcon()
-        icon4.addPixmap(QtGui.QPixmap(rpatha("del.ico")), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        icon4.addPixmap(QtGui.QPixmap(rpatha("trash.ico")), QtGui.QIcon.Normal, QtGui.QIcon.Off)
         self.pushButton_delete.setIcon(icon4)
         self.pushButton_delete.setIconSize(QtCore.QSize(32, 32))
         self.pushButton_delete.setObjectName("pushButton_delete")
         self.label_info_add_2 = QtWidgets.QLabel(self.centralwidget)
-        self.label_info_add_2.setGeometry(QtCore.QRect(900, 720, 281, 41))
+        self.label_info_add_2.setGeometry(QtCore.QRect(970, 720, 211, 31))
         font = QtGui.QFont()
         font.setFamily("Bahnschrift Light Condensed")
         font.setPointSize(11)
@@ -380,7 +382,7 @@ class Ui_MainWindow(object):
 "    background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0.142045 rgba(196, 192, 255, 255), stop:1 rgba(162, 224, 255, 255))\n"
 "}")
         icon5 = QtGui.QIcon()
-        icon5.addPixmap(QtGui.QPixmap(rpatha("search5.ico")), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        icon5.addPixmap(QtGui.QPixmap(rpatha("search6.ico")), QtGui.QIcon.Normal, QtGui.QIcon.Off)
         self.pushButton_search.setIcon(icon5)
         self.pushButton_search.setIconSize(QtCore.QSize(32, 32))
         self.pushButton_search.setObjectName("pushButton_search")
@@ -409,7 +411,7 @@ class Ui_MainWindow(object):
 "    background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0.142045 rgba(196, 192, 255, 255), stop:1 rgba(162, 224, 255, 255))\n"
 "}")
         icon6 = QtGui.QIcon()
-        icon6.addPixmap(QtGui.QPixmap(rpatha("info_stories.ico")), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        icon6.addPixmap(QtGui.QPixmap(rpatha("hist2.ico")), QtGui.QIcon.Normal, QtGui.QIcon.Off) # info_stories.ico
         self.pushButton_history.setIcon(icon6)
         self.pushButton_history.setIconSize(QtCore.QSize(32, 32))
         self.pushButton_history.setObjectName("pushButton_history")
@@ -467,8 +469,8 @@ class Ui_MainWindow(object):
 "    background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0.142045 rgba(196, 192, 255, 255), stop:1 rgba(162, 224, 255, 255))\n"
 "}")
         self.pushButton_mark.setText("")
-        icon8 = QtGui.QIcon()
-        icon8.addPixmap(QtGui.QPixmap(rpatha("wh.png")), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        icon8 = QtGui.QIcon() 
+        icon8.addPixmap(QtGui.QPixmap(rpatha("wh4.png")), QtGui.QIcon.Normal, QtGui.QIcon.Off) # wh.png
         self.pushButton_mark.setIcon(icon8)
         self.pushButton_mark.setIconSize(QtCore.QSize(32, 32))
         self.pushButton_mark.setObjectName("pushButton_mark")
@@ -502,15 +504,66 @@ class Ui_MainWindow(object):
         self.pushButton_print.setIcon(icon9)
         self.pushButton_print.setIconSize(QtCore.QSize(32, 32))
         self.pushButton_print.setObjectName("pushButton_print")
+        self.lineEdit_date_4 = QtWidgets.QLineEdit(self.centralwidget)
+        #self.lineEdit_date_4.setAlignment(Qt.AlignCenter)
+        self.lineEdit_date_4.setGeometry(QtCore.QRect(790, 70, 121, 41))
+        font = QtGui.QFont()
+        font.setFamily("Segoe UI")
+        font.setPointSize(8)
+        font.setBold(False)
+        font.setItalic(True)
+        font.setWeight(50)
+        self.lineEdit_date_4.setFont(font)
+        self.lineEdit_date_4.setFocusPolicy(QtCore.Qt.StrongFocus)
+        self.lineEdit_date_4.setStyleSheet("QLineEdit {\n"
+"    background-color: #e5f0ff;\n"
+"    border: 2px solid #4169e1;\n"
+"    border-radius: 10px;\n"
+"    border-width: 2px;    \n"
+"    selection-background-color: rgb(0, 170, 255)\n"
+"}\n"
+"\n"
+"QLineEdit:hover{\n"
+"    background-color: #bdd7ff\n"
+"}")
+        self.lineEdit_date_4.setObjectName("lineEdit_date_4")
+        self.lineEdit_date_4.setAlignment(Qt.AlignCenter)
+        self.lineEdit_date_5 = QtWidgets.QLineEdit(self.centralwidget)
+        self.lineEdit_date_5.setGeometry(QtCore.QRect(920, 70, 121, 41))
+        font = QtGui.QFont()
+        font.setFamily("Segoe UI")
+        font.setPointSize(8)
+        font.setBold(False)
+        font.setItalic(True)
+        font.setWeight(50)
+        self.lineEdit_date_5.setFont(font)
+        self.lineEdit_date_5.setFocusPolicy(QtCore.Qt.StrongFocus)
+        self.lineEdit_date_5.setStyleSheet("QLineEdit {\n"
+"    background-color: #e5f0ff;\n"
+"    border: 2px solid #4169e1;\n"
+"    border-radius: 10px;\n"
+"    border-width: 2px;    \n"
+"    selection-background-color: rgb(0, 170, 255)\n"
+"}\n"
+"\n"
+"QLineEdit:hover{\n"
+"    background-color: #bdd7ff\n"
+"}")
+        self.lineEdit_date_5.setObjectName("lineEdit_date_5")
+        self.lineEdit_date_5.setAlignment(Qt.AlignCenter)
         MainWindow.setCentralWidget(self.centralwidget)
         self.menubar = QtWidgets.QMenuBar(MainWindow)
-        self.menubar.setGeometry(QtCore.QRect(0, 0, 1200, 17))
+        self.menubar.setGeometry(QtCore.QRect(0, 0, 1200, 26))
         self.menubar.setToolTip("")
         self.menubar.setAccessibleName("")
         self.menubar.setDefaultUp(False)
         self.menubar.setNativeMenuBar(True)
         self.menubar.setObjectName("menubar")
         self.menu = QtWidgets.QMenu(self.menubar)
+        font = QtGui.QFont()
+        font.setFamily("Times New Roman")
+        font.setPointSize(10)
+        self.menu.setFont(font)
         self.menu.setObjectName("menu")
         #self.menu_2 = QtWidgets.QMenu(self.menubar)
         MainWindow.setMenuBar(self.menubar)
@@ -531,37 +584,81 @@ class Ui_MainWindow(object):
 
     def retranslateUi(self, MainWindow):
         _translate = QtCore.QCoreApplication.translate
-        MainWindow.setWindowTitle(_translate("MainWindow", "OPSHelper v 2.0"))
+        MainWindow.setWindowTitle(_translate("MainWindow", "OPSHelper v 2.1"))
         self.tableWidget_BD.setSortingEnabled(False)
-        
+
+        # Добавляем шрифт для клавши
+        font_id = QFontDatabase.addApplicationFont("style/Roboto-Black.ttf")
+        font_family = QFontDatabase.applicationFontFamilies(font_id)[0]
+        custom_font_1 = QFont(font_family, 11) 
+        custom_font_2 = QFont(font_family, 7) 
+
+        # Добавляем шрифт для подсказок
+        font_ids = QFontDatabase.addApplicationFont("style/Roboto-Light.ttf")
+        font_familys = QFontDatabase.applicationFontFamilies(font_ids)[0]
+        custom_fonts_1 = QFont(font_familys, 10)  
+        custom_fonts_2 = QFont(font_familys, 9)
+        custom_fonts_3 = QFont(font_familys, 8)
+
+        # Столбцы таблицы
         item = self.tableWidget_BD.horizontalHeaderItem(0)
         item.setText(_translate("MainWindow", "Наименование"))
-        item.setSizeHint(QSize(1, 27)) # --------------------------- Задать высоту заголовка
+        item.setFont(custom_fonts_2)
         item = self.tableWidget_BD.horizontalHeaderItem(1)
         item.setText(_translate("MainWindow", "Срок годности"))
+        item.setFont(custom_fonts_2)
         item = self.tableWidget_BD.horizontalHeaderItem(2)
         item.setText(_translate("MainWindow", "Дополнительная информация"))
-        self.lineEdit_search.setPlaceholderText(_translate("MainWindow", "  Поиск по имени "))
-        self.pushButton_home.setToolTip(_translate("MainWindow", "Перейти к общему списку"))
-        self.pushButton_home.setText(_translate("MainWindow", "Домой"))
-        self.lineEdit_name.setPlaceholderText(_translate("MainWindow", "  Наименование"))
-        self.lineEdit_date.setPlaceholderText(_translate("MainWindow", "  Срок годности"))
-        self.pushButton_add.setText(_translate("MainWindow", "Добавить"))
+        item.setFont(custom_fonts_2)
+        item.setSizeHint(QSize(1, 27)) # --------------------------- Задать высоту заголовка
+
+        # Кнопки
         self.label_info_add.setText(_translate("MainWindow", "Новый элемент:"))
-        self.pushButton_SortDate.setText(_translate("MainWindow", "Срок годности"))
-        self.pushButton_SortName.setText(_translate("MainWindow", "Наименование"))
-        self.pushButton_delete.setText(_translate("MainWindow", "Удалить"))
+        self.label_info_add.setFont(custom_fonts_1)
+
         self.label_info_add_2.setToolTip(_translate("MainWindow", "Разработал Козин Егор Технополис \"ЭРА\" для своей мамы"))
         self.label_info_add_2.setText(_translate("MainWindow", "© 2022 ЭРА. Все права защищены."))
-        self.lineEdit_dop.setPlaceholderText(_translate("MainWindow", "  Дополнительная информация"))
-        self.pushButton_search.setText(_translate("MainWindow", "Поиск"))
-        self.pushButton_history.setToolTip(_translate("MainWindow", "Здесь хранится вся история за последние 180 дней"))
-        self.pushButton_history.setText(_translate("MainWindow", "История"))
-        self.pushButton_exit.setText(_translate("MainWindow", "Выход"))
+
+        self.lineEdit_search.setPlaceholderText(_translate("MainWindow", " Поиск по имени "))
+        self.lineEdit_search.setFont(custom_fonts_2)
+        #self.lineEdit_search.setFont(font)
+        self.lineEdit_name.setPlaceholderText(_translate("MainWindow", " Наименование"))
+        self.lineEdit_name.setFont(custom_fonts_2)
+        #self.lineEdit_name.setFont(font)
+        self.lineEdit_date.setPlaceholderText(_translate("MainWindow", " Срок годности"))
+        self.lineEdit_date.setFont(custom_fonts_2)
+        #self.lineEdit_date.setFont(font)
+        self.lineEdit_dop.setPlaceholderText(_translate("MainWindow", " Дополнительная информация"))
+        self.lineEdit_dop.setFont(custom_fonts_2)
+        #self.lineEdit_dop.setFont(font)
+        self.lineEdit_date_4.setPlaceholderText(_translate("MainWindow", " Начало периода"))
+        self.lineEdit_date_4.setFont(custom_fonts_2)
+        self.lineEdit_date_5.setPlaceholderText(_translate("MainWindow", " Конец периода"))
+        self.lineEdit_date_5.setFont(custom_fonts_2)
+
+        self.pushButton_home.setToolTip(_translate("MainWindow", "Перейти к общему списку"))
+        self.pushButton_home.setText(_translate("MainWindow", " Домой"))
+        self.pushButton_home.setFont(custom_font_1)
+        self.pushButton_add.setText(_translate("MainWindow", " Добавить"))
+        self.pushButton_add.setFont(custom_font_1)
+        self.pushButton_SortDate.setText(_translate("MainWindow", " Срок годности"))
+        self.pushButton_SortDate.setFont(custom_font_1)
+        self.pushButton_SortName.setText(_translate("MainWindow", " Наименование"))
+        self.pushButton_SortName.setFont(custom_font_1)
+        self.pushButton_delete.setText(_translate("MainWindow", " Удалить"))
+        self.pushButton_delete.setFont(custom_font_1)
+        self.pushButton_search.setText(_translate("MainWindow", " Поиск"))
+        self.pushButton_search.setFont(custom_font_1)
+        self.pushButton_history.setText(_translate("MainWindow", " История"))
+        self.pushButton_history.setFont(custom_font_1)
+        self.pushButton_exit.setText(_translate("MainWindow", " Выход"))
+        self.pushButton_exit.setFont(custom_font_1)
+
         self.pushButton_mark.setToolTip(_translate("MainWindow", "Работа со складом"))
+        self.pushButton_history.setToolTip(_translate("MainWindow", "Здесь хранится вся история за последние 180 дней"))
 
         #self.menu.setTitle(_translate("MainWindow", "Инструкция")) # Кнопка меню 1
-
+        
         #self.menu.addAction(self.action_hotbutton) # Подкнопка 1
         #self.action_hotbutton.setText(_translate("MainWindow", "& Горячие клавиши"))
         #self.action_hotbutton.triggered.connect(lambda: self.call_hot())
@@ -573,14 +670,17 @@ class Ui_MainWindow(object):
         self.menubar.addAction(self.action_tool) # Задать действие в меню
         self.action_tool.setText(_translate("MainWindow", "& Инструкция")) # Назвать кнопку в меню
         self.action_tool.triggered.connect(lambda: self.call_tools())  # Задать действие при нажатии на клавишу
+        self.action_tool.setFont(custom_fonts_1)
 
         self.menubar.addAction(self.action_hotbutton)
         self.action_hotbutton.setText(_translate("MainWindow", "& Горячие клавиши"))
         self.action_hotbutton.triggered.connect(lambda: self.call_hot()) 
+        self.action_hotbutton.setFont(custom_fonts_1)
 
         self.menubar.addAction(self.action_about)
         self.action_about.setText(_translate("MainWindow", "& О программе"))
         self.action_about.triggered.connect(lambda: self.call_about()) 
+        self.action_about.setFont(custom_fonts_1)
     
     # Функция вывода окна истории
     def call_tools(self):
