@@ -1,5 +1,4 @@
 """
-
 Полезные ссылки:
 # http://it.kgsu.ru/Python_Qt/
 # https://doc.qt.io/qt-5/qt.html #Клавиши
@@ -13,7 +12,7 @@ import shutil
 
 from datetime import datetime
 from main_windows import Ui_MainWindow
-from history_windows import Ui_History_Windows
+from history_windows import Ui_History_Windowss
 
 
 from PyQt5.QtWidgets import QWidget, QMenu, QApplication, QMessageBox, QAbstractItemView, QTableWidgetItem, QMainWindow #, QTableWidget, QLineEdit
