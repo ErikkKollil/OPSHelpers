@@ -9,6 +9,7 @@ import sys
 import sqlite3
 #import time
 import shutil
+#import locale
 
 from datetime import datetime
 from main_windows import Ui_MainWindow
@@ -21,6 +22,8 @@ from PyQt5.QtPrintSupport import QPrinter, QPrintDialog
 from PyQt5.QtCore import Qt, QRegExp, QDate # QSize,
 from PyQt5.QtGui import QTextDocument, QFont
 
+#locale.setlocale(locale.LC_TIME, "ru_RU.UTF-8")
+#locale.setlocale(locale.LC_TIME, "Russian")
 
 def rpatha(filename):
         BASE_DIR = os.path.dirname(os.path.abspath(__file__))
@@ -288,27 +291,46 @@ class MainWindow(QMainWindow,Ui_MainWindow):
 
     # Функция кнопки (Принт) необходима для печати
     def butt_print(self):
+        date_now = datetime.now().date()
+        formatted_date = date_now.strftime("%d.%m.%Y")   
+
         """Функция печати данных из self.last_rez"""
         if not self.last_rez:
             QMessageBox.warning(self, "Ошибка", "Нет данных для печати!")
             return
 
         print(self.last_rez)
-        # Формируем HTML-таблицу из данных
-        html = "<h2>OPSHelper:</h2><h3>Список товаров на складе</h3>"
-        html += "<table border='1' style='border-collapse: collapse; width: 100%;'>"
-        html += "<tr><th>ID</th><th>Наименование</th><th>Дата</th><th>Описание</th><th>Статус</th></tr>"
-
+        # Формируем HTML-таблицу с табуляцией и отступами
+        html = f"""
+        <h3>OPSHelper: список товаров для печати на {formatted_date}</h3>
+        <table border="1" style="border-collapse: collapse; width: 100%; text-align: left; font-family: Arial, sans-serif; font-size: 14px;">
+            <thead>
+                <tr style="background-color: #f2f2f2;">
+                    <th style="padding: 8px;">ID</th>
+                    <th style="padding: 8px;">Наименование</th>
+                    <th style="padding: 8px;">Дата</th>
+                    <th style="padding: 8px;">Описание</th>
+                    <th style="padding: 8px;">Статус</th>
+                </tr>
+            </thead>
+            <tbody>
+        """
+        
         for row in self.last_rez:
-            html += "<tr>"
-            html += f"<td>{row[0]}</td>"  # ID
-            html += f"<td>{row[1]}</td>"  # Наименование
-            html += f"<td>{row[2]}</td>"  # Дата
-            html += f"<td>{row[3]}</td>"  # Описание
-            html += f"<td>{'На складе' if row[4] else 'Нет на складе'}</td>"  # Статус
-            html += "</tr>"
+            html += f"""
+                <tr>
+                    <td style="padding: 8px;">{row[0]}&emsp;</td> <!-- ID с табуляцией -->
+                    <td style="padding: 8px;">{row[1]}&emsp;</td> <!-- Наименование -->
+                    <td style="padding: 8px;">{row[2]}&emsp;</td> <!-- Дата -->
+                    <td style="padding: 8px;">{row[3]}&emsp;</td> <!-- Описание -->
+                    <td style="padding: 8px;">{'На складе' if row[4] else 'Нет на складе'}&emsp;</td> <!-- Статус -->
+                </tr>
+            """
 
-        html += "</table>"
+        html += """
+            </tbody>
+        </table>
+        """
 
         # Создаем объект принтера
         printer = QPrinter()

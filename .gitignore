@@ -6,6 +6,7 @@
 **/temp_ico/
 code/req.txt
 goods.db
+**/pdf/
 
 # Мои файлы для исключения
 */goods_rez.db
