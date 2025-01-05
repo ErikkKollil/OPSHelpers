@@ -217,7 +217,7 @@ class Ui_History_Windows(object):
 
     def retranslateUi(self, History_Windows):
         _translate = QtCore.QCoreApplication.translate
-        History_Windows.setWindowTitle(_translate("History_Windows", "OPSHelper v 2.0 - История"))
+        History_Windows.setWindowTitle(_translate("History_Windows", "OPSHelper v 2.1 - История"))
         self.pushButton_back.setText(_translate("History_Windows", "Назад"))
         self.label_info_h.setToolTip(_translate("History_Windows", "Разработал Козин Егор Технополис \"ЭРА\" для своей мамы"))
         self.label_info_h.setText(_translate("History_Windows", "© 2022 ЭРА. \nВсе права защищены."))

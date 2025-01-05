@@ -147,7 +147,6 @@ class MainWindow(QMainWindow,Ui_MainWindow):
         try:
             row = self.tableWidget_BD.currentRow() # Считываем выделеную строку
             column = self.tableWidget_BD.currentColumn() # Считываем выделеную колонку
-            #print(row,column)
             if column == 0: # Считываем данные из ячеек по условию 
                 cell_text_1 = self.tableWidget_BD.item(row, int(column)).text() # Считываем 1 ячейку
                 cell_text_2 = self.tableWidget_BD.item(row, int(column)+1).text() # Считываем 2 ячейку
@@ -157,7 +156,6 @@ class MainWindow(QMainWindow,Ui_MainWindow):
             else:
                 cell_text_1 = self.tableWidget_BD.item(row, int(column)-2).text()
                 cell_text_2 = self.tableWidget_BD.item(row, int(column)-1).text()
-            #print(cell_text_1, cell_text_2)
             cell_text_20 = datetime.strptime(cell_text_2, '%d.%m.%Y').date()
             
             try:
@@ -188,23 +186,20 @@ class MainWindow(QMainWindow,Ui_MainWindow):
                         else:
                             QMessageBox.about(self, "Информация", "Произведено действие со складом!")
                         print('Изменения флага были внесены в БД') 
-                    except Exception as e:
-                        print(e)  
-                        print('ERROR_1!') 
+                    except Exception as e:  
+                        print('ERROR_1:', e) 
                 except Exception as e:
-                    print(e)
-                    print('ERROR_2!')   
-            except:
-                print('ERROR_3')
-        except:
-            print('Неизвестная ошибка! При поиске флага')
+                    print('ERROR_2:', e)   
+            except Exception as e:
+                print('ERROR_3:', e)
+        except Exception as e:
+            print('Неизвестная ошибка! При поиске флага:', e)
 
     # Функция кнопки удаления элемента из таблица
     def butt_del(self):
         try:
             row = self.tableWidget_BD.currentRow() # Считываем выделенную строку
             column = self.tableWidget_BD.currentColumn() # Считываем выделеную колонку
-            print(row,column)
             if row == -1 and column == -1:
                 QMessageBox.about(self, "Информация", "Вы не выбрали элемент для удаления!")
             else:
@@ -229,18 +224,16 @@ class MainWindow(QMainWindow,Ui_MainWindow):
                         self.last_rez = all_results.copy() # Записать данные как последний результат
                     else: # Иначе (если нет записей больше) перейти на главный экран
                         self.butt_home() # Перейти на главную страницу
-        except:
-            print('При нажатии кнопки "УДАЛИТЬ" возникла ошибка!')
+        except Exception as e:
+            print('При нажатии кнопки "УДАЛИТЬ" возникла ошибка:', e)
 
     # Функция удаления элемента из таблицы
     def T_dell_item(self, itemname, itemdate, iteminfo):
-        #print('ДАТА1:', itemdate) #03.12.2012
         item_date = datetime.strptime(itemdate, '%d.%m.%Y').date()
-        #print('ДАТА2:', item_date) #2012-12-03
         try:
             sql_text = """DELETE FROM prod WHERE prod_name = '{item1}' AND prod_date = '{item2}';""" 
             sql_request = sql_text.format(item1=itemname, item2=item_date)
-            print('Запрос:', sql_request) # Запрос
+            #print('Запрос:', sql_request) # Запрос
             try:
                 cur.execute(sql_request) # Выполнение запроса
                 conn.commit() # Сохранение данных
@@ -250,14 +243,11 @@ class MainWindow(QMainWindow,Ui_MainWindow):
                     #print('hist', itemname, item_date, iteminfo)
                     print('Выполнена передача новых данных!')
                 except Exception as e:
-                    print(e)
-                    print('Данные не были добавлены в историю! См.выше')
+                    print('Данные не были добавлены в историю:', e)
             except Exception as e:
-                print(e)
-                print('Изменения не были внесены в БД')
+                print('Изменения не были внесены в БД:', e)
         except Exception as e :
-            print(e)
-            print('Не верно задан метод удаления!')
+            print('Не верно задан метод удаления:', e)
 
     # Функция кнопки (Добавить) для добавления элементов в таблицу
     def butt_add(self): 
@@ -299,7 +289,7 @@ class MainWindow(QMainWindow,Ui_MainWindow):
             QMessageBox.warning(self, "Ошибка", "Нет данных для печати!")
             return
 
-        print(self.last_rez)
+        #print(self.last_rez)
         # Формируем HTML-таблицу с табуляцией и отступами
         html = f"""
         <h3>OPSHelper: список товаров для печати на {formatted_date}</h3>
@@ -349,7 +339,7 @@ class MainWindow(QMainWindow,Ui_MainWindow):
     def click_one_n(self): # Для первого нажатия (в порядке А-Я)
         #print('one')
         if self.last_sql_request[-4:-1] == 'ASC':
-            print('ASC')
+            #print('ASC')
             sql_request = self.last_sql_request[:-14] + 'prod_name' + ' ASC;'
             self.last_sql_request = sql_request
             cur.execute(sql_request)
@@ -357,7 +347,7 @@ class MainWindow(QMainWindow,Ui_MainWindow):
             self.update_table(all_results) 
             self.last_rez = all_results.copy() # Записать данные как последний результат
         elif str(self.last_sql_request)[-4:-1] == 'ESC':
-            print('DESC')
+            #print('DESC')
             sql_request = self.last_sql_request[:-15] + 'prod_name' + ' ASC;'
             self.last_sql_request = sql_request 
             cur.execute(sql_request) 
