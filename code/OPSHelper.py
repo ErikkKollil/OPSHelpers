@@ -428,7 +428,9 @@ class MainWindow(QMainWindow,Ui_MainWindow):
 
     # Функция кнопки (Поиск) для поиска элементов в таблице
     def butt_search(self):
-        self.T_text_search('prod', self.lineEdit_search.text()) # Выполнить поиск в таблице
+        start_date = datetime.strptime(self.lineEdit_date_4.text(), "%d.%m.%Y").strftime("%Y-%m-%d") if self.lineEdit_date_4.text() else "1900-01-01"
+        end_date =  datetime.strptime(self.lineEdit_date_5.text(), "%d.%m.%Y").strftime("%Y-%m-%d") if self.lineEdit_date_5.text() else "2999-12-31"
+        self.T_text_search('prod', self.lineEdit_search.text(), start_date, end_date) # Выполнить поиск в таблице
     
     # Функция вывода окна истории
     def call_hist(self):
@@ -517,7 +519,8 @@ class MainWindow(QMainWindow,Ui_MainWindow):
 ###############################################################--Функции для работы с таблицами--#################################################################
 
     # Функция поиска, отвечает за поиск информации в БД
-    def T_text_search(self, name_table, text, methods='date'):
+    def T_text_search(self, name_table, text, date_1, date_2, methods='date'):
+        #print(date_1, date_2)
         if text == '#Delete all data prod': 
             if self.show_messagebox_delete_all_lose() == True: # При положительном ответе на вопрос
                 pass
@@ -545,11 +548,13 @@ class MainWindow(QMainWindow,Ui_MainWindow):
                 print('Не верно задан метод!')
 
         else:
+            sql_text = """SELECT prod_noid, prod_name, strftime('%d.%m.%Y', prod_date),  prod_info, prod_flag  FROM {name_tables} 
+                WHERE (LOWER(prod_name) like LOWER('%{text}%') OR UPPER(prod_name) like UPPER('%{text}%'))
+                AND prod_date BETWEEN '{date_1}' AND '{date_2}' ORDER BY {name_tables}_{methods} ASC;"""
+
             try:
-                sql_text = """SELECT prod_noid, prod_name, strftime('%d.%m.%Y', prod_date),  prod_info, prod_flag  FROM {name_tables} 
-                WHERE LOWER(prod_name) like LOWER('%{text}%') OR UPPER(prod_name) like UPPER('%{text}%') ORDER BY {name_tables}_{methods} ASC;"""
                 #В SqlLite нет однозначной возможности привести всё в одному из регистров, в связи с чем применяется поиск с таким алгоритмом
-                sql_request = sql_text.format(name_tables=name_table, methods=methods, text=text)
+                sql_request = sql_text.format(name_tables=name_table, methods=methods, text=text, date_1=date_1, date_2=date_2)
                 print('Запрос:', sql_request) # Сформированный запрос
                 cur.execute(sql_request) # Выполнить запрос
                 all_results = cur.fetchall()
@@ -563,8 +568,8 @@ class MainWindow(QMainWindow,Ui_MainWindow):
                     QMessageBox.about(self, "Информация", "По вашему запросу ничего не нашлось!")
                     self.lineEdit_search.clear() # Очистить поле ввода
                     print(self.last_rez)
-            except:
-                print('Не верно задан метод!')
+            except Exception as e:
+                print('Не верно задан метод!', e)
     
     # Функция вывода, отвечает за вывод всей информации в БД
     def T_select_table(self, name_table, methods='date'): 
