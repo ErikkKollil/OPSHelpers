@@ -591,14 +591,12 @@ class Ui_MainWindow(object):
         font_id = QFontDatabase.addApplicationFont("style/Roboto-Black.ttf")
         font_family = QFontDatabase.applicationFontFamilies(font_id)[0]
         custom_font_1 = QFont(font_family, 11) 
-        custom_font_2 = QFont(font_family, 7) 
 
         # Добавляем шрифт для подсказок
         font_ids = QFontDatabase.addApplicationFont("style/Roboto-Light.ttf")
         font_familys = QFontDatabase.applicationFontFamilies(font_ids)[0]
         custom_fonts_1 = QFont(font_familys, 10)  
         custom_fonts_2 = QFont(font_familys, 9)
-        custom_fonts_3 = QFont(font_familys, 8)
 
         # Столбцы таблицы
         item = self.tableWidget_BD.horizontalHeaderItem(0)
@@ -612,30 +610,27 @@ class Ui_MainWindow(object):
         item.setFont(custom_fonts_2)
         item.setSizeHint(QSize(1, 27)) # --------------------------- Задать высоту заголовка
 
-        # Кнопки
+        # Информация
         self.label_info_add.setText(_translate("MainWindow", "Новый элемент:"))
         self.label_info_add.setFont(custom_fonts_1)
-
         self.label_info_add_2.setToolTip(_translate("MainWindow", "Разработал Козин Егор Технополис \"ЭРА\" для своей мамы"))
         self.label_info_add_2.setText(_translate("MainWindow", "© 2022 ЭРА. Все права защищены."))
 
+        # Подсказки
         self.lineEdit_search.setPlaceholderText(_translate("MainWindow", " Поиск по имени "))
         self.lineEdit_search.setFont(custom_fonts_2)
-        #self.lineEdit_search.setFont(font)
         self.lineEdit_name.setPlaceholderText(_translate("MainWindow", " Наименование"))
         self.lineEdit_name.setFont(custom_fonts_2)
-        #self.lineEdit_name.setFont(font)
         self.lineEdit_date.setPlaceholderText(_translate("MainWindow", " Срок годности"))
         self.lineEdit_date.setFont(custom_fonts_2)
-        #self.lineEdit_date.setFont(font)
         self.lineEdit_dop.setPlaceholderText(_translate("MainWindow", " Дополнительная информация"))
         self.lineEdit_dop.setFont(custom_fonts_2)
-        #self.lineEdit_dop.setFont(font)
         self.lineEdit_date_4.setPlaceholderText(_translate("MainWindow", " Начало периода"))
         self.lineEdit_date_4.setFont(custom_fonts_2)
         self.lineEdit_date_5.setPlaceholderText(_translate("MainWindow", " Конец периода"))
         self.lineEdit_date_5.setFont(custom_fonts_2)
 
+        # Клавиши
         self.pushButton_home.setToolTip(_translate("MainWindow", "Перейти к общему списку"))
         self.pushButton_home.setText(_translate("MainWindow", " Домой"))
         self.pushButton_home.setFont(custom_font_1)

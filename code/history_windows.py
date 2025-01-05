@@ -7,6 +7,7 @@
 # WARNING! All changes made in this file will be lost!
 
 from PyQt5 import QtCore, QtGui, QtWidgets
+from PyQt5.QtGui import QFontDatabase, QFont
 from PyQt5.QtCore import QSize, Qt
 import sys, os
 
@@ -43,7 +44,7 @@ class Ui_History_Windows(object):
 "}")
         self.centralwidgeth.setObjectName("centralwidgeth")
         self.pushButton_back = QtWidgets.QPushButton(self.centralwidgeth)
-        self.pushButton_back.setGeometry(QtCore.QRect(830, 500, 161, 41))
+        self.pushButton_back.setGeometry(QtCore.QRect(830, 530, 161, 41))
         self.pushButton_back.setCursor(Qt.PointingHandCursor) ######################################
         font = QtGui.QFont()
         font.setFamily("Constantia")
@@ -74,7 +75,7 @@ class Ui_History_Windows(object):
         self.pushButton_back.setIconSize(QtCore.QSize(32, 32))
         self.pushButton_back.setObjectName("pushButton_back")
         self.label_info_h = QtWidgets.QLabel(self.centralwidgeth)
-        self.label_info_h.setGeometry(QtCore.QRect(820, 540, 181, 41))
+        self.label_info_h.setGeometry(QtCore.QRect(820, 340, 181, 41))
         font = QtGui.QFont()
         font.setFamily("Bahnschrift Light Condensed")
         font.setPointSize(11)
@@ -247,19 +248,21 @@ class Ui_History_Windows(object):
 
         # Клавиши 
         self.pushButton_homeh.setText(_translate("History_Windows", "Домой"))
-        self.pushButton_homeh.setFont(custom_fonts_1)
+        self.pushButton_homeh.setFont(custom_font_1)
         self.pushButton_searchh.setText(_translate("History_Windows", "Поиск"))
-        self.pushButton_searchh.setFont(custom_fonts_1)
+        self.pushButton_searchh.setFont(custom_font_1)
         self.pushButton_back.setText(_translate("History_Windows", "Назад"))
-        self.pushButton_back.setFont(custom_fonts_1)
+        self.pushButton_back.setFont(custom_font_1)
         
         # Информация
         self.label_info_h.setToolTip(_translate("History_Windows", "Разработал Козин Егор Технополис \"ЭРА\" для своей мамы"))
         self.label_info_h.setFont(custom_fonts_1)
-        self.label_info_h.setText(_translate("History_Windows", "© 2022 ЭРА. \nВсе права защищены."))
+        self.label_info_h.setText(_translate("History_Windows", "        © 2022 ЭРА. \nВсе права защищены."))
         self.label_info_h.setFont(custom_fonts_1)
         
+        # Подсказки
         self.lineEdit_searchh.setPlaceholderText(_translate("History_Windows", "  Поиск по имени "))
+        self.lineEdit_searchh.setFont(custom_fonts_2)
         
         
 
