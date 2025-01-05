@@ -20,6 +20,45 @@ def rpatha(filename):
         ICONS_DIR = os.path.join(BASE_DIR, '..', 'icons')
         return os.path.join(ICONS_DIR, filename)
 
+class CustomLineEdit(object):
+    def __init__(self, parent=None):
+        super().__init__(parent)
+
+    def contextMenuEvent(self, event):
+        # Создаем кастомное меню
+        menu = QMenu(self)
+
+        # Добавляем действия на русском языке
+        undo_action = QAction("Отменить", self)
+        undo_action.triggered.connect(self.undo)
+        menu.addAction(undo_action)
+
+        redo_action = QAction("Повторить", self)
+        redo_action.triggered.connect(self.redo)
+        menu.addAction(redo_action)
+
+        menu.addSeparator()
+
+        cut_action = QAction("Вырезать", self)
+        cut_action.triggered.connect(self.cut)
+        menu.addAction(cut_action)
+
+        copy_action = QAction("Копировать", self)
+        copy_action.triggered.connect(self.copy)
+        menu.addAction(copy_action)
+
+        paste_action = QAction("Вставить", self)
+        paste_action.triggered.connect(self.paste)
+        menu.addAction(paste_action)
+
+        menu.addSeparator()
+
+        select_all_action = QAction("Выделить все", self)
+        select_all_action.triggered.connect(self.selectAll)
+        menu.addAction(select_all_action)
+
+        # Отображаем меню
+        menu.exec_(event.globalPos())
 
 class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
@@ -736,5 +775,7 @@ if __name__ == "__main__":
     MainWindow = QtWidgets.QMainWindow()
     ui = Ui_MainWindow()
     ui.setupUi(MainWindow)
+    MainWindow = CustomLineEdit()
+    MainWindow.setPlaceholderText("ПКМ для контекстного меню")
     MainWindow.show()
     sys.exit(app.exec_())

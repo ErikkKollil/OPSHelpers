@@ -133,6 +133,7 @@ class MainWindow(QMainWindow,Ui_MainWindow):
         copy_action.triggered.connect(self.copy_selected_items)
         menu.exec_(self.tableWidget_BD.viewport().mapToGlobal(position))
 
+
     def copy_selected_items(self):
         """Копирование выделенных данных"""
         selected_items = self.tableWidget_BD.selectedItems()
@@ -386,7 +387,6 @@ class MainWindow(QMainWindow,Ui_MainWindow):
     def click_one_d(self): # Для первого нажатия
         #print('one')
         if self.last_sql_request[-4:-1] == 'ASC':
-            print('ASC')
             print('LAST_ASC:', self.last_sql_request)
             sql_request = self.last_sql_request[:-14] + 'prod_date' + ' ASC;'
             self.last_sql_request = sql_request 
@@ -395,7 +395,6 @@ class MainWindow(QMainWindow,Ui_MainWindow):
             self.update_table(all_results) 
             self.last_rez = all_results.copy() # Записать данные как последний результат
         elif str(self.last_sql_request)[-4:-1] == 'ESC':
-            print('DESC')
             print('LAST_DESC:', self.last_sql_request)
             sql_request = self.last_sql_request[:-15] + 'prod_date' + ' ASC;'
             self.last_sql_request = sql_request 
@@ -492,8 +491,20 @@ class MainWindow(QMainWindow,Ui_MainWindow):
     # Окно сообщения с подтверждением удаления
     def show_messagebox_delete(self, name, date):
         txt = 'Вы точно хотите удалить выделенный элемент?\n\nНаименование:\t'+str(name)+'\nСрок годности:\t'+ str(date)
-        #print('Вопрос - ', txt)
-        choice = QMessageBox.question(self, 'Информация', txt, QMessageBox.Yes | QMessageBox.No) 
+        
+        # Создаем сообщение
+        message_box = QMessageBox(self)
+        message_box.setIcon(QMessageBox.Question)
+        message_box.setWindowTitle('Информация')
+        message_box.setText(txt)
+        
+        # Настраиваем кнопки
+        message_box.setStandardButtons(QMessageBox.Yes | QMessageBox.No)
+        message_box.button(QMessageBox.Yes).setText('Да')
+        message_box.button(QMessageBox.No).setText('Нет')
+        
+        # Показываем сообщение и возвращаем результат
+        choice = message_box.exec()
         if choice == QMessageBox.Yes:                           
             return True
         elif choice == QMessageBox.No:                          
@@ -503,7 +514,19 @@ class MainWindow(QMainWindow,Ui_MainWindow):
     def show_messagebox_exit(self):
         txt = 'Вы точно хотите выйти из программы?\n\nВся информация будет сохранена автоматически.'
         #print('Вопрос - ', txt)
-        choice = QMessageBox.question(self, 'Информация', txt, QMessageBox.Yes | QMessageBox.No)  
+        # Создаем сообщение
+        message_box = QMessageBox(self)
+        message_box.setIcon(QMessageBox.Question)
+        message_box.setWindowTitle('Информация')
+        message_box.setText(txt)
+        
+        # Настраиваем кнопки
+        message_box.setStandardButtons(QMessageBox.Yes | QMessageBox.No)
+        message_box.button(QMessageBox.Yes).setText('Да')
+        message_box.button(QMessageBox.No).setText('Нет')
+        
+        # Показываем сообщение и возвращаем результат
+        choice = message_box.exec()
         if choice == QMessageBox.Yes:                           
             return True
         elif choice == QMessageBox.No:                          
@@ -513,7 +536,19 @@ class MainWindow(QMainWindow,Ui_MainWindow):
     def show_messagebox_delete_all(self):
         txt = 'Вы точно хотите очистить все данные таблицы?\n\nВыполнится полный сброс базы данных!'
         #print('Вопрос - ', txt)
-        choice = QMessageBox.question(self, 'Информация', txt, QMessageBox.Yes | QMessageBox.No)  
+        # Создаем сообщение
+        message_box = QMessageBox(self)
+        message_box.setIcon(QMessageBox.Question)
+        message_box.setWindowTitle('Информация')
+        message_box.setText(txt)
+        
+        # Настраиваем кнопки
+        message_box.setStandardButtons(QMessageBox.Yes | QMessageBox.No)
+        message_box.button(QMessageBox.Yes).setText('Да')
+        message_box.button(QMessageBox.No).setText('Нет')
+        
+        # Показываем сообщение и возвращаем результат
+        choice = message_box.exec()
         if choice == QMessageBox.Yes:                           
             return True
         elif choice == QMessageBox.No:                          
@@ -522,7 +557,19 @@ class MainWindow(QMainWindow,Ui_MainWindow):
     def show_messagebox_delete_all_lose(self):
         txt = 'Вы хотели удалить все данные в таблицах?\n\nК сожалению, мы убрали эту функцию!'
         #print('Вопрос - ', txt)
-        choice = QMessageBox.question(self, 'Информация', txt, QMessageBox.Yes | QMessageBox.No)
+        # Создаем сообщение
+        message_box = QMessageBox(self)
+        message_box.setIcon(QMessageBox.Question)
+        message_box.setWindowTitle('Информация')
+        message_box.setText(txt)
+        
+        # Настраиваем кнопки
+        message_box.setStandardButtons(QMessageBox.Yes | QMessageBox.No)
+        message_box.button(QMessageBox.Yes).setText('Да')
+        message_box.button(QMessageBox.No).setText('Нет')
+        
+        # Показываем сообщение и возвращаем результат
+        choice = message_box.exec()
         if choice == QMessageBox.Yes:
             return True
         elif choice == QMessageBox.No:
