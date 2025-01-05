@@ -218,21 +218,50 @@ class Ui_History_Windows(object):
     def retranslateUi(self, History_Windows):
         _translate = QtCore.QCoreApplication.translate
         History_Windows.setWindowTitle(_translate("History_Windows", "OPSHelper v 2.1 - История"))
-        self.pushButton_back.setText(_translate("History_Windows", "Назад"))
-        self.label_info_h.setToolTip(_translate("History_Windows", "Разработал Козин Егор Технополис \"ЭРА\" для своей мамы"))
-        self.label_info_h.setText(_translate("History_Windows", "© 2022 ЭРА. \nВсе права защищены."))
-        self.pushButton_searchh.setText(_translate("History_Windows", "Поиск"))
-        self.lineEdit_searchh.setPlaceholderText(_translate("History_Windows", "  Поиск по имени "))
+
+        # Добавляем шрифт для клавши
+        font_id = QFontDatabase.addApplicationFont("style/Roboto-Black.ttf")
+        font_family = QFontDatabase.applicationFontFamilies(font_id)[0]
+        custom_font_1 = QFont(font_family, 11) 
+
+        # Добавляем шрифт для подсказок
+        font_ids = QFontDatabase.addApplicationFont("style/Roboto-Light.ttf")
+        font_familys = QFontDatabase.applicationFontFamilies(font_ids)[0]
+        custom_fonts_1 = QFont(font_familys, 10)  
+        custom_fonts_2 = QFont(font_familys, 9)
+
+        # Столбцы таблицы
         item = self.tableWidget.horizontalHeaderItem(0)
         item.setText(_translate("History_Windows", "Наименование"))
+        item.setFont(custom_fonts_2)
         item.setSizeHint(QSize(1, 25)) # Задать высоту заголовка
         item = self.tableWidget.horizontalHeaderItem(1)
         item.setText(_translate("History_Windows", "Срок годности"))
+        item.setFont(custom_fonts_2)
         item = self.tableWidget.horizontalHeaderItem(2)
         item.setText(_translate("History_Windows", "Дата удаления"))
+        item.setFont(custom_fonts_2)
         item = self.tableWidget.horizontalHeaderItem(3)
         item.setText(_translate("History_Windows", "Дополнительная информация"))
+        item.setFont(custom_fonts_2)
+
+        # Клавиши 
         self.pushButton_homeh.setText(_translate("History_Windows", "Домой"))
+        self.pushButton_homeh.setFont(custom_fonts_1)
+        self.pushButton_searchh.setText(_translate("History_Windows", "Поиск"))
+        self.pushButton_searchh.setFont(custom_fonts_1)
+        self.pushButton_back.setText(_translate("History_Windows", "Назад"))
+        self.pushButton_back.setFont(custom_fonts_1)
+        
+        # Информация
+        self.label_info_h.setToolTip(_translate("History_Windows", "Разработал Козин Егор Технополис \"ЭРА\" для своей мамы"))
+        self.label_info_h.setFont(custom_fonts_1)
+        self.label_info_h.setText(_translate("History_Windows", "© 2022 ЭРА. \nВсе права защищены."))
+        self.label_info_h.setFont(custom_fonts_1)
+        
+        self.lineEdit_searchh.setPlaceholderText(_translate("History_Windows", "  Поиск по имени "))
+        
+        
 
 
 if __name__ == "__main__":
