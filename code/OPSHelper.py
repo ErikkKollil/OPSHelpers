@@ -16,11 +16,11 @@ from main_windows import Ui_MainWindow
 from history_windows import Ui_History_Windows
 
 
-from PyQt5.QtWidgets import QWidget, QMenu, QApplication, QMessageBox, QAbstractItemView, QTableWidgetItem, QMainWindow #, QTableWidget, QLineEdit
-from PyQt5.QtGui import QColor, QRegExpValidator  # QKeyEvent
+from PyQt5.QtWidgets import QWidget, QMenu, QApplication, QMessageBox, QAbstractItemView, QTableWidgetItem, QMainWindow, QLineEdit #, QTableWidget, QLineEdit
+from PyQt5.QtGui import QColor, QRegExpValidator  #, QKeyEvent
 from PyQt5.QtPrintSupport import QPrinter, QPrintDialog
-from PyQt5.QtCore import Qt, QRegExp, QDate # QSize,
-from PyQt5.QtGui import QTextDocument, QFont
+from PyQt5.QtCore import Qt, QRegExp, QDate #, QSize
+from PyQt5.QtGui import QTextDocument #, QFont
 
 #locale.setlocale(locale.LC_TIME, "ru_RU.UTF-8")
 #locale.setlocale(locale.LC_TIME, "Russian")
@@ -67,7 +67,7 @@ class MainWindow(QMainWindow,Ui_MainWindow):
         self.style_table()  # Применяет стили к таблице приложения
         self.T_select_table('prod', 'date')  # При первом запуске приложения выводи таблицу prod
         self.click_button()  # Активирует (отслеживается нажатия) кнопки
-        self.setup_context_menu()  # Для работы ПКМ
+        self.setup_context_menu()  # Для работы ПКМ на таблице
         self.ongoing_n = True  # Используется для сигнала нажатия кнопки - по наименованию
         self.ongoing_d = True  # Используется для сигнала нажатия кнопки - по сроку годности
 
@@ -122,17 +122,43 @@ class MainWindow(QMainWindow,Ui_MainWindow):
         self.pushButton_print.clicked.connect(self.butt_print)
 
     def setup_context_menu(self):
-        """Настройка контекстного меню для таблицы"""
+        """Настройка контекстного меню"""
         self.tableWidget_BD.setContextMenuPolicy(Qt.CustomContextMenu)
-        self.tableWidget_BD.customContextMenuRequested.connect(self.show_context_menu)
+        self.tableWidget_BD.customContextMenuRequested.connect(self.show_table_context_menu)
 
-    def show_context_menu(self, position):
+        # Устанавливаем контекстное меню для всех QLineEdit
+        for line_edit in self.findChildren(QLineEdit):
+            line_edit.setContextMenuPolicy(Qt.CustomContextMenu)
+            line_edit.customContextMenuRequested.connect(self.show_custom_lineedit_menu)
+
+    def show_table_context_menu(self, position):
         """Контекстное меню для таблицы"""
         menu = QMenu()
         copy_action = menu.addAction("Копировать")
         copy_action.triggered.connect(self.copy_selected_items)
         menu.exec_(self.tableWidget_BD.viewport().mapToGlobal(position))
 
+    def show_custom_lineedit_menu(self, position):
+        """Настраиваемое контекстное меню для LineEdit"""
+        menu = QMenu()
+        copy_action = menu.addAction("Копировать")
+        paste_action = menu.addAction("Вставить")
+        cut_action = menu.addAction("Вырезать")
+        select_all_action = menu.addAction("Выделить всё")
+        clear_action = menu.addAction("Очистить")
+
+        # Получаем ссылку на LineEdit, вызвавший меню
+        sender = self.sender()
+
+        # Подключаем действия
+        copy_action.triggered.connect(lambda: sender.copy())
+        paste_action.triggered.connect(lambda: sender.paste())
+        cut_action.triggered.connect(lambda: sender.cut())
+        select_all_action.triggered.connect(lambda: sender.selectAll())
+        clear_action.triggered.connect(lambda: sender.clear())
+
+        # Показываем меню
+        menu.exec_(sender.mapToGlobal(position))
 
     def copy_selected_items(self):
         """Копирование выделенных данных"""
@@ -140,7 +166,7 @@ class MainWindow(QMainWindow,Ui_MainWindow):
         if selected_items:
             clipboard = QApplication.clipboard()
             clipboard.setText("\n".join([item.text() for item in selected_items]))
-            QMessageBox.information(self, "Информация", "Выбранные данные скопированы в буфер обмена!")
+            #QMessageBox.information(self, "Информация", "Выбранные данные скопированы в буфер обмена!")
         else:
             QMessageBox.warning(self, "Ошибка", "Нет выделенных элементов для копирования!")
 
