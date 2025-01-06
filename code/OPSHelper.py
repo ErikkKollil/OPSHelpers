@@ -5,6 +5,7 @@
 """
 
 import os
+import re
 import sys
 import sqlite3
 #import time
@@ -99,12 +100,25 @@ class MainWindow(QMainWindow,Ui_MainWindow):
         """Проверка правильности введенной даты"""
         sender_field = self.sender()  # Определяем, из какого поля вызвана проверка
         text = sender_field.text()
-        date = QDate.fromString(text, "dd.MM.yyyy")
-        
-        if not date.isValid():
-            QMessageBox.warning(self, "Ошибка ввода", "Введите корректную дату в формате дд.мм.гггг.")
-            sender_field.setFocus()
-            sender_field.selectAll()
+
+        # Регулярное выражение для проверки формата с любыми комбинациями "." и ","
+        pattern = r"^(\d{2})[.,](\d{2})[.,](\d{4})$"
+        match = re.match(pattern, text)
+
+        if match:
+            # Формируем дату в формате dd.MM.yyyy
+            normalized_date = f"{match.group(1)}.{match.group(2)}.{match.group(3)}"
+            date = QDate.fromString(normalized_date, "dd.MM.yyyy")
+            if date.isValid():
+                return  # Дата корректна
+        # Если дата не соответствует ни одному из форматов или невалидна
+        QMessageBox.warning(
+            self,
+            "Ошибка ввода",
+            "Введите корректную дату в формате дд.мм.гггг, дд,мм,гггг, дд,мм.гггг или дд.мм,гггг."
+        )
+        sender_field.setFocus()
+        sender_field.selectAll()
 
     ##############################################################--Функции кнопок в программе--##################################################################
     
@@ -304,6 +318,8 @@ class MainWindow(QMainWindow,Ui_MainWindow):
     # Функция кнопки (Домой) - возвращает на главную страницу таблицы
     def butt_home(self):
         self.lineEdit_search.clear() # Очистка поля
+        self.lineEdit_date_4.clear() # Очистка поля
+        self.lineEdit_date_5.clear() # Очистка поля
         self.T_select_table('prod', 'noid')
 
     # Функция кнопки (Принт) необходима для печати
@@ -314,7 +330,7 @@ class MainWindow(QMainWindow,Ui_MainWindow):
         """Функция печати данных из self.last_rez"""
         if not self.last_rez:
             QMessageBox.warning(self, "Ошибка", "Нет данных для печати!")
-            return
+            return 
 
         #print(self.last_rez)
         # Формируем HTML-таблицу с табуляцией и отступами
@@ -325,7 +341,7 @@ class MainWindow(QMainWindow,Ui_MainWindow):
                 <tr style="background-color: #f2f2f2;">
                     <th style="padding: 8px;">ID</th>
                     <th style="padding: 8px;">Наименование</th>
-                    <th style="padding: 8px;">Дата</th>
+                    <th style="padding: 8px;">Срок годности</th>
                     <th style="padding: 8px;">Описание</th>
                     <th style="padding: 8px;">Статус</th>
                 </tr>
@@ -410,7 +426,7 @@ class MainWindow(QMainWindow,Ui_MainWindow):
         self.click_one_d() if not self.ongoing_d else self.click_two_d() # Функция для выполненеия разных действий при нажатии
         self.ongoing_d = not self.ongoing_d # Меняем булево значение
 
-    def click_one_d(self): # Для первого нажатия
+    def click_two_d(self): # Для первого нажатия
         #print('one')
         if self.last_sql_request[-4:-1] == 'ASC':
             print('LAST_ASC:', self.last_sql_request)
@@ -431,7 +447,7 @@ class MainWindow(QMainWindow,Ui_MainWindow):
         else:
             print('Bag_sort_date_1!')
 
-    def click_two_d(self): # Для второго нажатия
+    def click_one_d(self): # Для второго нажатия
         #print('two')
         if str(self.last_sql_request)[-4:-1] == 'ASC':
             print('ASC')
@@ -465,8 +481,11 @@ class MainWindow(QMainWindow,Ui_MainWindow):
 
     # Функция кнопки (Поиск) для поиска элементов в таблице
     def butt_search(self):
-        start_date = datetime.strptime(self.lineEdit_date_4.text(), "%d.%m.%Y").strftime("%Y-%m-%d") if self.lineEdit_date_4.text() else "1900-01-01"
-        end_date =  datetime.strptime(self.lineEdit_date_5.text(), "%d.%m.%Y").strftime("%Y-%m-%d") if self.lineEdit_date_5.text() else "2999-12-31"
+        lineEdit_date_4 = self.lineEdit_date_4.text().replace(',','.')
+        lineEdit_date_5 = self.lineEdit_date_5.text().replace(',','.')
+
+        start_date = datetime.strptime(lineEdit_date_4, "%d.%m.%Y").strftime("%Y-%m-%d") if self.lineEdit_date_4.text() else "1900-01-01"
+        end_date =  datetime.strptime(lineEdit_date_5, "%d.%m.%Y").strftime("%Y-%m-%d") if self.lineEdit_date_5.text() else "2999-12-31"
         self.T_text_search('prod', self.lineEdit_search.text(), start_date, end_date) # Выполнить поиск в таблице
     
     # Функция вывода окна истории
@@ -659,8 +678,9 @@ class MainWindow(QMainWindow,Ui_MainWindow):
     # Функция вывода, отвечает за вывод всей информации в БД
     def T_select_table(self, name_table, methods='date'): 
         try:
-            sql_text = """SELECT prod_noid, prod_name, strftime('%d.%m.%Y', prod_date), prod_info, prod_flag FROM {name_tables} ORDER BY {name_tables}_{methods} ASC;"""
+            sql_text = """SELECT prod_noid, prod_name, strftime('%d.%m.%Y', prod_date), prod_info, prod_flag FROM {name_tables} ORDER BY {name_tables}_{methods} ASC;""" 
             sql_request = sql_text.format(name_tables=name_table, methods=methods)
+            print(sql_request)
             self.last_sql_request = sql_request # Сформированный запрос
             cur.execute(sql_request) # Выполнить запрос
             all_results = cur.fetchall()
@@ -669,8 +689,7 @@ class MainWindow(QMainWindow,Ui_MainWindow):
             print("Производится вывод данных таблицы {0}, с сортировкой по {1}:".format(name_table, methods))
             print(all_results) # Результат запроса  
         except Exception as e :
-            print(e)
-            print('Не верно задан метод!')
+            print('Не верно задан метод:', e)
 
     # Функция для проверки наличия (одинаковых) данных уже в БД 
     def T_check_in(self, name_table, n, d):
@@ -721,14 +740,13 @@ class MainWindow(QMainWindow,Ui_MainWindow):
 
     # Функция проверки даты
     def check_dt(self, dt):
+        dt = dt.replace(',','.')
         try:
             n1 = str(datetime.strptime(dt, '%d.%m.%Y')).replace(' 00:00:00','')
-        except:
-            try:
-                n1 = str(datetime.strptime(dt, '%d,%m,%Y')).replace(' 00:00:00','')
-            except Exception as e:
-                print(e)
+        except Exception as e:
+            print('Ошибка в функции check_dt:', e)
         finally:
+            print('Результат check_dt:', n1)
             return n1
 
     # Функция (обновления данных таблицы на экране) необходима для вывода информации в БД (в окне)
@@ -973,7 +991,7 @@ def T_validate(date_text):
         datetime.strptime(date_text, '%Y-%m-%d')
     except ValueError:
         raise ValueError("Incorrect data format, should be YYYY-MM-DD")
-        return print('Не верно введен срок годности!')
+        #return print('Не верно введен срок годности!')
 
 # Переопределение функции преобразования к нижнему регистру
 def sqlite_lower(value_):

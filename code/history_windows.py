@@ -261,7 +261,7 @@ class Ui_History_Windows(object):
         self.label_info_h.setFont(custom_fonts_1)
         
         # Подсказки
-        self.lineEdit_searchh.setPlaceholderText(_translate("History_Windows", "  Поиск по имени "))
+        self.lineEdit_searchh.setPlaceholderText(_translate("History_Windows", "  Поиск по наименованию "))
         self.lineEdit_searchh.setFont(custom_fonts_2)
         
         
