@@ -6,10 +6,11 @@
 **/temp_ico/
 code/req.txt
 goods.db
+goods_rez.db
+goods_backup.db
 **/pdf/
 
 # Мои файлы для исключения
-*/goods_rez.db
 */.gitignore
 */requirements.txt
 

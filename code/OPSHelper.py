@@ -10,21 +10,18 @@ import sys
 import sqlite3
 #import time
 import shutil
-#import locale
 
 from datetime import datetime
 from main_windows import Ui_MainWindow
 from history_windows import Ui_History_Windows
 
 
-from PyQt5.QtWidgets import QWidget, QMenu, QApplication, QMessageBox, QAbstractItemView, QTableWidgetItem, QMainWindow, QLineEdit #, QTableWidget, QLineEdit
+from PyQt5.QtWidgets import QWidget, QMenu, QApplication, QMessageBox, QAbstractItemView, QTableWidgetItem, QMainWindow, QLineEdit
 from PyQt5.QtGui import QColor, QRegExpValidator  #, QKeyEvent
 from PyQt5.QtPrintSupport import QPrinter, QPrintDialog
 from PyQt5.QtCore import Qt, QRegExp, QDate #, QSize
 from PyQt5.QtGui import QTextDocument #, QFont
 
-#locale.setlocale(locale.LC_TIME, "ru_RU.UTF-8")
-#locale.setlocale(locale.LC_TIME, "Russian")
 
 def rpatha(filename):
         BASE_DIR = os.path.dirname(os.path.abspath(__file__))
@@ -43,9 +40,9 @@ class MainWindow(QMainWindow,Ui_MainWindow):
     def backup_database(self):
         """Создание копии базы данных при закрытии программы"""
         db_path = "goods.db"  # Имя исходного файла базы данных
-        backup_path = os.path.splitext(db_path)[0] + "_rez" + os.path.splitext(db_path)[1]
+        backup_path = os.path.splitext(db_path)[0] + "_buckup" + os.path.splitext(db_path)[1]
         try:
-            shutil.copy(db_path, backup_path)  # Копируем файл
+            shutil.copy(db_path, backup_path)  # Создаем бэкапбэкап 
             print(f"Копия базы данных успешно создана: {backup_path}")
         except Exception as e:
             print(f"Ошибка при создании копии базы данных: {e}")
@@ -110,12 +107,13 @@ class MainWindow(QMainWindow,Ui_MainWindow):
             normalized_date = f"{match.group(1)}.{match.group(2)}.{match.group(3)}"
             date = QDate.fromString(normalized_date, "dd.MM.yyyy")
             if date.isValid():
-                return  # Дата корректна
+                return  # Завершаем, так как дата валидна
+        
         # Если дата не соответствует ни одному из форматов или невалидна
-        QMessageBox.warning(
+        QMessageBox.about(
             self,
-            "Ошибка ввода",
-            "Введите корректную дату в формате дд.мм.гггг, дд,мм,гггг, дд,мм.гггг или дд.мм,гггг."
+            "Ошибка ввода данных",
+            "Проверьте корректность введенных данных!\nЗначения должны разделяться точкой '.' или запятой ','"
         )
         sender_field.setFocus()
         sender_field.selectAll()
@@ -299,7 +297,7 @@ class MainWindow(QMainWindow,Ui_MainWindow):
                     T_validate(d2) # Перевод даты в другой формат #2001-12-12
                     if datetime.strptime(d2, '%Y-%m-%d') > datetime.strptime('2000-01-01', '%Y-%m-%d'):
                         print('Вы ввели новые данные:', self.lineEdit_name.text(), d2, self.lineEdit_dop.text())
-                        self.T_execute('prod', self.lineEdit_name.text(), d2, self.lineEdit_dop.text()) # Добавление данных в таблицу
+                        self.T_execute('prod', self.lineEdit_name.text().lstrip(), d2, self.lineEdit_dop.text()) # Добавление данных в таблицу
                         self.T_select_table('prod', 'date') # Вывод всех данных таблицы с сортировкой по порядку добавления
                         self.lineEdit_name.clear() # Очистка поля
                         self.lineEdit_date.clear() # Очистка поля

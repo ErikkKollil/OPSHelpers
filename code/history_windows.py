@@ -218,7 +218,7 @@ class Ui_History_Windows(object):
 
     def retranslateUi(self, History_Windows):
         _translate = QtCore.QCoreApplication.translate
-        History_Windows.setWindowTitle(_translate("History_Windows", "OPSHelper v 2.1 - История"))
+        History_Windows.setWindowTitle(_translate("History_Windows", "OPSHelper v 2.4 - История"))
 
         # Добавляем шрифт для клавши
         font_id = QFontDatabase.addApplicationFont("style/Roboto-Black.ttf")

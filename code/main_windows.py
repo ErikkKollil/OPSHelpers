@@ -584,7 +584,7 @@ class Ui_MainWindow(object):
 
     def retranslateUi(self, MainWindow):
         _translate = QtCore.QCoreApplication.translate
-        MainWindow.setWindowTitle(_translate("MainWindow", "OPSHelper v 2.1"))
+        MainWindow.setWindowTitle(_translate("MainWindow", "OPSHelper v 2.4"))
         self.tableWidget_BD.setSortingEnabled(False)
 
         # Добавляем шрифт для клавши

@@ -58,7 +58,7 @@ class Ui_Tools_Windows(object):
 
     def retranslateUi(self, Tools_Windows):
         _translate = QtCore.QCoreApplication.translate
-        Tools_Windows.setWindowTitle(_translate("Tools_Windows", "OPSHelper v 2.0 - Инструкция"))
+        Tools_Windows.setWindowTitle(_translate("Tools_Windows", "OPSHelper v 2.4 - Инструкция"))
         self.textEdit.setHtml(_translate("Tools_Windows", "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/REC-html40/strict.dtd\">\n"
 "<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css\">\n"
 "p, li { white-space: pre-wrap; }\n"
