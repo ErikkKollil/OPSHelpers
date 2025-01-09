@@ -12,11 +12,22 @@ from PyQt5.QtCore import QSize, Qt
 import sys, os
 
 
-def rpatha(filename):
-        BASE_DIR = os.path.dirname(os.path.abspath(__file__))
-        ICONS_DIR = os.path.join(BASE_DIR, '..', 'icons')
-        return os.path.join(ICONS_DIR, filename)
+# Определяем базовый путь
+if getattr(sys, 'frozen', False):  # Если запущено из собранного .exe
+    base_path = sys._MEIPASS
+else:  # Если запускается из исходников
+    base_path = os.path.abspath(".")
 
+# Путь к иконкам
+ico_rman = os.path.join(base_path, "icons", "rman.ico") 
+ico_back = os.path.join(base_path, "icons", "back.ico")
+ico_post = os.path.join(base_path, "icons", "post.ico")
+ico_search = os.path.join(base_path, "icons", "search6.ico")
+ico_home = os.path.join(base_path, "icons", "h3.ico")
+
+# Путь к шрифтам
+font_path_black = os.path.join(base_path, "style", "Roboto-Black.ttf")
+font_path_light = os.path.join(base_path, "style", "Roboto-Light.ttf")
 
 
 class Ui_History_Windows(object):
@@ -35,7 +46,7 @@ class Ui_History_Windows(object):
         History_Windows.setMaximumSize(QtCore.QSize(1000, 600))
         History_Windows.setWindowModality(QtCore.Qt.ApplicationModal) # Окно блокирует все окна в приложении 
         icon = QtGui.QIcon()
-        icon.addPixmap(QtGui.QPixmap(rpatha("rman.ico")), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        icon.addPixmap(QtGui.QPixmap(ico_rman), QtGui.QIcon.Normal, QtGui.QIcon.Off)
         History_Windows.setWindowIcon(icon)
         self.centralwidgeth = QtWidgets.QWidget(History_Windows)
         self.centralwidgeth.setGeometry(QtCore.QRect(0, 0, 1011, 601))
@@ -70,7 +81,7 @@ class Ui_History_Windows(object):
 "    background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0.142045 rgba(196, 192, 255, 255), stop:1 rgba(162, 224, 255, 255))\n"
 "}")
         icon1 = QtGui.QIcon()
-        icon1.addPixmap(QtGui.QPixmap(rpatha("back.ico")), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        icon1.addPixmap(QtGui.QPixmap(ico_back), QtGui.QIcon.Normal, QtGui.QIcon.Off)
         self.pushButton_back.setIcon(icon1)
         self.pushButton_back.setIconSize(QtCore.QSize(32, 32))
         self.pushButton_back.setObjectName("pushButton_back")
@@ -86,7 +97,7 @@ class Ui_History_Windows(object):
         self.label_post.setGeometry(QtCore.QRect(840, 210, 131, 131))
         self.label_post.setStyleSheet("background-color: none")
         self.label_post.setText("")
-        self.label_post.setPixmap(QtGui.QPixmap(rpatha("post.ico")))
+        self.label_post.setPixmap(QtGui.QPixmap(ico_post))
         self.label_post.setScaledContents(False)
         self.label_post.setWordWrap(False)
         self.label_post.setObjectName("label_post")
@@ -116,7 +127,7 @@ class Ui_History_Windows(object):
 "    background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0.142045 rgba(196, 192, 255, 255), stop:1 rgba(162, 224, 255, 255))\n"
 "}")
         icon2 = QtGui.QIcon()
-        icon2.addPixmap(QtGui.QPixmap(rpatha("search5.ico")), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        icon2.addPixmap(QtGui.QPixmap(ico_search), QtGui.QIcon.Normal, QtGui.QIcon.Off)
         self.pushButton_searchh.setIcon(icon2)
         self.pushButton_searchh.setIconSize(QtCore.QSize(32, 32))
         self.pushButton_searchh.setObjectName("pushButton_searchh")
@@ -205,7 +216,7 @@ class Ui_History_Windows(object):
 "    background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0.142045 rgba(196, 192, 255, 255), stop:1 rgba(162, 224, 255, 255))\n"
 "}")
         icon3 = QtGui.QIcon()
-        icon3.addPixmap(QtGui.QPixmap(rpatha("h3.ico")), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        icon3.addPixmap(QtGui.QPixmap(ico_home), QtGui.QIcon.Normal, QtGui.QIcon.Off)
         self.pushButton_homeh.setIcon(icon3)
         self.pushButton_homeh.setIconSize(QtCore.QSize(32, 32))
         self.pushButton_homeh.setObjectName("pushButton_homeh")
@@ -221,15 +232,15 @@ class Ui_History_Windows(object):
         History_Windows.setWindowTitle(_translate("History_Windows", "OPSHelper v 2.4 - История"))
 
         # Добавляем шрифт для клавши
-        font_id = QFontDatabase.addApplicationFont("style/Roboto-Black.ttf")
-        font_family = QFontDatabase.applicationFontFamilies(font_id)[0]
-        custom_font_1 = QFont(font_family, 11) 
+        font_id_black = QFontDatabase.addApplicationFont(font_path_black)
+        font_family_black = QFontDatabase.applicationFontFamilies(font_id_black)
+        custom_font_1 = QFont(font_family_black[0], 11)
 
         # Добавляем шрифт для подсказок
-        font_ids = QFontDatabase.addApplicationFont("style/Roboto-Light.ttf")
-        font_familys = QFontDatabase.applicationFontFamilies(font_ids)[0]
-        custom_fonts_1 = QFont(font_familys, 10)  
-        custom_fonts_2 = QFont(font_familys, 9)
+        font_id_light = QFontDatabase.addApplicationFont(font_path_light)
+        font_family_light = QFontDatabase.applicationFontFamilies(font_id_light)
+        custom_fonts_1 = QFont(font_family_light[0], 10)
+        custom_fonts_2 = QFont(font_family_light[0], 9)
 
         # Столбцы таблицы
         item = self.tableWidget.horizontalHeaderItem(0)
@@ -247,11 +258,11 @@ class Ui_History_Windows(object):
         item.setFont(custom_fonts_2)
 
         # Клавиши 
-        self.pushButton_homeh.setText(_translate("History_Windows", "Домой"))
+        self.pushButton_homeh.setText(_translate("History_Windows", " Домой"))
         self.pushButton_homeh.setFont(custom_font_1)
-        self.pushButton_searchh.setText(_translate("History_Windows", "Поиск"))
+        self.pushButton_searchh.setText(_translate("History_Windows", " Поиск"))
         self.pushButton_searchh.setFont(custom_font_1)
-        self.pushButton_back.setText(_translate("History_Windows", "Назад"))
+        self.pushButton_back.setText(_translate("History_Windows", " Назад"))
         self.pushButton_back.setFont(custom_font_1)
         
         # Информация

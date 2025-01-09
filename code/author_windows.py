@@ -11,24 +11,19 @@ from PyQt5.QtCore import Qt
 import sys, os
 
 
-def rpatha(filename):
-        BASE_DIR = os.path.dirname(os.path.abspath(__file__))
-        ICONS_DIR = os.path.join(BASE_DIR, '..', 'icons')
-        return os.path.join(ICONS_DIR, filename)
+# Определяем базовый путь
+if getattr(sys, 'frozen', False):  # Если запущено из собранного .exe
+    base_path = sys._MEIPASS
+else:  # Если запускается из исходников
+    base_path = os.path.abspath(".")
 
+# Путь к изображениям
+ico_iam = os.path.join(base_path, "icons", "iam.png")
 
 
 class Ui_About(object):
     
     def setupUi(self, Form):
-
-        def rpath(relative_path):
-            try:
-                base_path = sys._MEIPASS
-            except Exception:
-                base_path = os.path.abspath(".")
-            return os.path.join(base_path, relative_path)
-
         Form.setObjectName("Form")
         Form.resize(721, 620)
         Form.setWindowFlags(QtCore.Qt.FramelessWindowHint)
@@ -40,7 +35,7 @@ class Ui_About(object):
         self.label = QtWidgets.QLabel(self.widget)
         self.label.setGeometry(QtCore.QRect(0, 10, 711, 571))
         
-        self.label.setStyleSheet("border-image: url(" + rpatha("iam.png").replace('\\','/') + ");")
+        self.label.setStyleSheet("border-image: url(" + ico_iam.replace('\\','/') + ");")
         #self.label.setStyleSheet("border-image: url(./icons/iam.png);")
 
         self.label.setText("")

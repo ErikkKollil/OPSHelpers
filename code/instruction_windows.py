@@ -10,11 +10,14 @@ from PyQt5 import QtCore, QtGui, QtWidgets
 from PyQt5.QtCore import Qt
 import sys, os
 
+# Определяем базовый путь
+if getattr(sys, 'frozen', False):  # Если запущено из собранного .exe
+    base_path = sys._MEIPASS
+else:  # Если запускается из исходников
+    base_path = os.path.abspath(".")
 
-def rpatha(filename):
-    BASE_DIR = os.path.dirname(os.path.abspath(__file__))
-    ICONS_DIR = os.path.join(BASE_DIR, '..', 'icons')
-    return os.path.join(ICONS_DIR, filename)
+# Путь к иконкам
+ico_help = os.path.join(base_path, "icons", "ghelp.ico")
 
 
 class Ui_Tools_Windows(object):
@@ -34,7 +37,7 @@ class Ui_Tools_Windows(object):
         Tools_Windows.setMinimumSize(QtCore.QSize(940, 600))
         Tools_Windows.setMaximumSize(QtCore.QSize(940, 600))
         icon = QtGui.QIcon()
-        icon.addPixmap(QtGui.QPixmap(rpatha("ghelp.ico")), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        icon.addPixmap(QtGui.QPixmap(ico_help), QtGui.QIcon.Normal, QtGui.QIcon.Off)
         Tools_Windows.setWindowIcon(icon)
         Tools_Windows.setStyleSheet("QWidget {\n"
 "background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0.142045 rgba(187, 183, 250, 255), stop:1 rgba(148, 212, 245, 255));\n"

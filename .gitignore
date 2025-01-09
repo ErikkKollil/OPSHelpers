@@ -1,18 +1,16 @@
-# Исключение лишних дичных папок
+# Исключение лишних папок
 **/temp_files/
 **/old_file/
-**/exe_onedir/
-**/exe_onefile/
 **/temp_ico/
-code/req.txt
-goods.db
-goods_rez.db
-goods_backup.db
+**/build/
 **/pdf/
+**/exe/
 
 # Мои файлы для исключения
-*/.gitignore
-*/requirements.txt
+*goods
+*gitignore
+OPSHelper.spec
+create_exe.txt
 
 # Исключение каталога PyCharm (настройки среды)
 .idea/
@@ -30,12 +28,13 @@ ENV/
 .venv/
 .virtualenv/
 
-# Лог-файлы и временные файлы
+# Лог-файлы и временные файлы и бд
 *.log
 *.tmp
 *.swp
 *.swo
 *.swn
+*.db
 
 # Исключение файлов ОС
 .DS_Store

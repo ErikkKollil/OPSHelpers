@@ -15,25 +15,20 @@ from datetime import datetime
 from main_windows import Ui_MainWindow
 from history_windows import Ui_History_Windows
 
-
 from PyQt5.QtWidgets import QWidget, QMenu, QApplication, QMessageBox, QAbstractItemView, QTableWidgetItem, QMainWindow, QLineEdit
 from PyQt5.QtGui import QColor, QRegExpValidator  #, QKeyEvent
 from PyQt5.QtPrintSupport import QPrinter, QPrintDialog
-from PyQt5.QtCore import Qt, QRegExp, QDate #, QSize
+from PyQt5.QtCore import Qt, QRegExp, QDate, QLibraryInfo #, QSize
 from PyQt5.QtGui import QTextDocument #, QFont
 
+# Определяем базовый путь
+if getattr(sys, 'frozen', False):  # Если запущено из собранного .exe
+    base_path = sys._MEIPASS
+else:  # Если запускается из исходников
+    base_path = os.path.abspath(".")
 
-def rpatha(filename):
-        BASE_DIR = os.path.dirname(os.path.abspath(__file__))
-        ICONS_DIR = os.path.join(BASE_DIR, '..', 'icons')
-        return os.path.join(ICONS_DIR, filename)
-
-#def rpath(relative_path): # Для создания заставки
-#        try:
-#            base_path = sys._MEIPASS
-#        except Exception:
-#            base_path = os.path.abspath(".")
-#        return os.path.join(base_path, relative_path)
+# Путь к заставке
+ico_headband = os.path.join(base_path, "icons", "dwc.png")
 
 #Класс для главного окна 
 class MainWindow(QMainWindow,Ui_MainWindow):
@@ -1023,7 +1018,7 @@ T_creat_table_hist() #Создание и проверка таблиц hist
 
 if __name__ =="__main__":
     app = QApplication(sys.argv)
-    #splash = QtWidgets.QSplashScreen(QtGui.QPixmap(rpatha("dwc.png"))) #WindowStaysOnTopHint Заставка
+    #splash = QtWidgets.QSplashScreen(QtGui.QPixmap(ico_headband)) #WindowStaysOnTopHint Заставка
     #splash.show() # Отображаем заставку
     #time.sleep(2) # Пауза для заставки
     wind = MainWindow()

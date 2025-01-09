@@ -14,11 +14,27 @@ from hotkey_windows import Ui_Hot_Windows
 from author_windows import Ui_About
 import sys, os
 
+# Определяем базовый путь
+if getattr(sys, 'frozen', False):  # Если запущено из собранного .exe
+    base_path = sys._MEIPASS
+else:  # Если запускается из исходников
+    base_path = os.path.abspath(".")
 
-def rpatha(filename):
-        BASE_DIR = os.path.dirname(os.path.abspath(__file__))
-        ICONS_DIR = os.path.join(BASE_DIR, '..', 'icons')
-        return os.path.join(ICONS_DIR, filename)
+# Путь к иконкам
+ico_rman = os.path.join(base_path, "icons", "rman.ico")  
+ico_print = os.path.join(base_path, "icons", "printer.png")  
+ico_home = os.path.join(base_path, "icons", "h3.ico")
+ico_add = os.path.join(base_path, "icons", "add2.ico")
+ico_trash = os.path.join(base_path, "icons", "trash.ico")
+ico_search = os.path.join(base_path, "icons", "search6.ico")
+ico_history = os.path.join(base_path, "icons", "hist2.ico")
+ico_exit = os.path.join(base_path, "icons", "e2.ico")
+ico_sort = os.path.join(base_path, "icons", "sort.png")
+ico_warehouse = os.path.join(base_path, "icons", "wh4.png")
+
+# Путь к шрифтам
+font_path_black = os.path.join(base_path, "style", "Roboto-Black.ttf")
+font_path_light = os.path.join(base_path, "style", "Roboto-Light.ttf")
 
 
 class Ui_MainWindow(object):
@@ -34,7 +50,7 @@ class Ui_MainWindow(object):
         font.setWeight(50)
         MainWindow.setFont(font)
         icon = QtGui.QIcon()
-        icon.addPixmap(QtGui.QPixmap(rpatha("rman.ico")), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        icon.addPixmap(QtGui.QPixmap(ico_rman), QtGui.QIcon.Normal, QtGui.QIcon.Off)
         MainWindow.setWindowIcon(icon)
         MainWindow.setStyleSheet("")
         MainWindow.setWindowFilePath("")
@@ -152,7 +168,7 @@ class Ui_MainWindow(object):
                                                         "    background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0.142045 rgba(196, 192, 255, 255), stop:1 rgba(162, 224, 255, 255))\n"
                                                         "}")
         icon1 = QtGui.QIcon()
-        icon1.addPixmap(QtGui.QPixmap(rpatha("h3.ico")), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        icon1.addPixmap(QtGui.QPixmap(ico_home), QtGui.QIcon.Normal, QtGui.QIcon.Off)
         self.pushButton_home.setIcon(icon1)
         self.pushButton_home.setIconSize(QtCore.QSize(32, 32))
         self.pushButton_home.setObjectName("pushButton_home")
@@ -226,7 +242,7 @@ class Ui_MainWindow(object):
                                                         "    background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0.142045 rgba(196, 192, 255, 255), stop:1 rgba(162, 224, 255, 255))\n"
                                                         "}")
         icon2 = QtGui.QIcon()
-        icon2.addPixmap(QtGui.QPixmap(rpatha("add2.ico")), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        icon2.addPixmap(QtGui.QPixmap(ico_add), QtGui.QIcon.Normal, QtGui.QIcon.Off)
         self.pushButton_add.setIcon(icon2)
         self.pushButton_add.setIconSize(QtCore.QSize(32, 32))
         self.pushButton_add.setObjectName("pushButton_add")
@@ -265,7 +281,7 @@ class Ui_MainWindow(object):
                                                                 "    background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0.142045 rgba(196, 192, 255, 255), stop:1 rgba(162, 224, 255, 255))\n"
                                                                 "}")
         icon3 = QtGui.QIcon()
-        icon3.addPixmap(QtGui.QPixmap(rpatha("sort.png")), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        icon3.addPixmap(QtGui.QPixmap(ico_sort), QtGui.QIcon.Normal, QtGui.QIcon.Off)
         self.pushButton_SortDate.setIcon(icon3)
         self.pushButton_SortDate.setIconSize(QtCore.QSize(32, 32))
         self.pushButton_SortDate.setObjectName("pushButton_SortDate")
@@ -321,7 +337,7 @@ class Ui_MainWindow(object):
                                                         "    background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0.142045 rgba(196, 192, 255, 255), stop:1 rgba(162, 224, 255, 255))\n"
                                                         "}")
         icon4 = QtGui.QIcon()
-        icon4.addPixmap(QtGui.QPixmap(rpatha("trash.ico")), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        icon4.addPixmap(QtGui.QPixmap(ico_trash), QtGui.QIcon.Normal, QtGui.QIcon.Off)
         self.pushButton_delete.setIcon(icon4)
         self.pushButton_delete.setIconSize(QtCore.QSize(32, 32))
         self.pushButton_delete.setObjectName("pushButton_delete")
@@ -382,7 +398,7 @@ class Ui_MainWindow(object):
 "    background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0.142045 rgba(196, 192, 255, 255), stop:1 rgba(162, 224, 255, 255))\n"
 "}")
         icon5 = QtGui.QIcon()
-        icon5.addPixmap(QtGui.QPixmap(rpatha("search6.ico")), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        icon5.addPixmap(QtGui.QPixmap(ico_search), QtGui.QIcon.Normal, QtGui.QIcon.Off)
         self.pushButton_search.setIcon(icon5)
         self.pushButton_search.setIconSize(QtCore.QSize(32, 32))
         self.pushButton_search.setObjectName("pushButton_search")
@@ -411,7 +427,7 @@ class Ui_MainWindow(object):
 "    background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0.142045 rgba(196, 192, 255, 255), stop:1 rgba(162, 224, 255, 255))\n"
 "}")
         icon6 = QtGui.QIcon()
-        icon6.addPixmap(QtGui.QPixmap(rpatha("hist2.ico")), QtGui.QIcon.Normal, QtGui.QIcon.Off) # info_stories.ico
+        icon6.addPixmap(QtGui.QPixmap(ico_history), QtGui.QIcon.Normal, QtGui.QIcon.Off)
         self.pushButton_history.setIcon(icon6)
         self.pushButton_history.setIconSize(QtCore.QSize(32, 32))
         self.pushButton_history.setObjectName("pushButton_history")
@@ -440,7 +456,7 @@ class Ui_MainWindow(object):
 "    background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0.142045 rgba(196, 192, 255, 255), stop:1 rgba(162, 224, 255, 255))\n"
 "}")
         icon7 = QtGui.QIcon()
-        icon7.addPixmap(QtGui.QPixmap(rpatha("e2.ico")), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        icon7.addPixmap(QtGui.QPixmap(ico_exit), QtGui.QIcon.Normal, QtGui.QIcon.Off)
         self.pushButton_exit.setIcon(icon7)
         self.pushButton_exit.setIconSize(QtCore.QSize(32, 32))
         self.pushButton_exit.setObjectName("pushButton_exit")
@@ -470,7 +486,7 @@ class Ui_MainWindow(object):
 "}")
         self.pushButton_mark.setText("")
         icon8 = QtGui.QIcon() 
-        icon8.addPixmap(QtGui.QPixmap(rpatha("wh4.png")), QtGui.QIcon.Normal, QtGui.QIcon.Off) # wh.png
+        icon8.addPixmap(QtGui.QPixmap(ico_warehouse), QtGui.QIcon.Normal, QtGui.QIcon.Off) 
         self.pushButton_mark.setIcon(icon8)
         self.pushButton_mark.setIconSize(QtCore.QSize(32, 32))
         self.pushButton_mark.setObjectName("pushButton_mark")
@@ -500,7 +516,7 @@ class Ui_MainWindow(object):
 "}")
         self.pushButton_print.setText("")
         icon9 = QtGui.QIcon()
-        icon9.addPixmap(QtGui.QPixmap(rpatha("printer.png")), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        icon9.addPixmap(QtGui.QPixmap(ico_print), QtGui.QIcon.Normal, QtGui.QIcon.Off)
         self.pushButton_print.setIcon(icon9)
         self.pushButton_print.setIconSize(QtCore.QSize(32, 32))
         self.pushButton_print.setObjectName("pushButton_print")
@@ -583,20 +599,21 @@ class Ui_MainWindow(object):
         QtCore.QMetaObject.connectSlotsByName(MainWindow)
 
     def retranslateUi(self, MainWindow):
+        
         _translate = QtCore.QCoreApplication.translate
         MainWindow.setWindowTitle(_translate("MainWindow", "OPSHelper v 2.4"))
         self.tableWidget_BD.setSortingEnabled(False)
 
         # Добавляем шрифт для клавши
-        font_id = QFontDatabase.addApplicationFont("style/Roboto-Black.ttf")
-        font_family = QFontDatabase.applicationFontFamilies(font_id)[0]
-        custom_font_1 = QFont(font_family, 11) 
+        font_id_black = QFontDatabase.addApplicationFont(font_path_black)
+        font_family_black = QFontDatabase.applicationFontFamilies(font_id_black)
+        custom_font_1 = QFont(font_family_black[0], 11)
 
         # Добавляем шрифт для подсказок
-        font_ids = QFontDatabase.addApplicationFont("style/Roboto-Light.ttf")
-        font_familys = QFontDatabase.applicationFontFamilies(font_ids)[0]
-        custom_fonts_1 = QFont(font_familys, 10)  
-        custom_fonts_2 = QFont(font_familys, 9)
+        font_id_light = QFontDatabase.addApplicationFont(font_path_light)
+        font_family_light = QFontDatabase.applicationFontFamilies(font_id_light)
+        custom_fonts_1 = QFont(font_family_light[0], 10)
+        custom_fonts_2 = QFont(font_family_light[0], 9)
 
         # Столбцы таблицы
         item = self.tableWidget_BD.horizontalHeaderItem(0)

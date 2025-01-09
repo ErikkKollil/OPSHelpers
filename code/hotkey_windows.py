@@ -10,10 +10,14 @@ from PyQt5 import QtCore, QtGui, QtWidgets
 from PyQt5.QtCore import Qt
 import sys, os
 
-def rpatha(filename):
-    BASE_DIR = os.path.dirname(os.path.abspath(__file__))
-    ICONS_DIR = os.path.join(BASE_DIR, '..', 'icons')
-    return os.path.join(ICONS_DIR, filename)
+# Определяем базовый путь
+if getattr(sys, 'frozen', False):  # Если запущено из собранного .exe
+    base_path = sys._MEIPASS
+else:  # Если запускается из исходников
+    base_path = os.path.abspath(".")
+
+# Путь к иконкам 
+ico_help = os.path.join(base_path, "icons", "ghelp.ico")
 
 class Ui_Hot_Windows(object):
     def setupUi(self, Hot_Windows):
@@ -31,7 +35,7 @@ class Ui_Hot_Windows(object):
         Hot_Windows.setMaximumSize(QtCore.QSize(677, 311))
         Hot_Windows.setWindowModality(QtCore.Qt.ApplicationModal)
         icon = QtGui.QIcon()
-        icon.addPixmap(QtGui.QPixmap(rpatha("ghelp.ico")), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        icon.addPixmap(QtGui.QPixmap(ico_help), QtGui.QIcon.Normal, QtGui.QIcon.Off)
         Hot_Windows.setWindowIcon(icon)
         Hot_Windows.setStyleSheet("QWidget {\n"
 "background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0.142045 rgba(187, 183, 250, 255), stop:1 rgba(148, 212, 245, 255));\n"
